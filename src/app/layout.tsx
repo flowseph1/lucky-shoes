@@ -1,4 +1,4 @@
-import "@/src/styles/globals.css";
+import "@/styles/globals.css";
 
 import { Container } from "@/components/container";
 import ProviderWrapper from "@/store/ProviderWrapper";
@@ -15,7 +15,9 @@ export default function RootLayout({
       <body>
         <Header />
         <ProviderWrapper>
-          <Container>{children}</Container>
+          <Container>
+            <main className="pt-[var(--header-height)]">{children}</main>
+          </Container>
         </ProviderWrapper>
         <Footer />
       </body>

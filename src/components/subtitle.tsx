@@ -9,8 +9,8 @@ export const Subtitle = ({
   className?: string;
 }) => {
   return (
-    <p className={cx("text-subtitle font-semibold text-text-base", className)}>
+    <h2 className={cx("text-subtitle font-semibold text-text-base", className)}>
       {subtitle}
-    </p>
+    </h2>
   );
 };

@@ -15,7 +15,7 @@
 @layer base {
 
      :root {
-          --navigation-height: 6rem;
+          --header-height: 6rem;
      }
 
      html {
