@@ -13,8 +13,8 @@ module.exports = {
             lg: "1.7rem",
             xl: "2.5rem",
             xxl: "3rem",
-            subtitle: ["2.5rem", "1"],
-            title: ["3.4rem", "1.5"],
+            subtitle: ["1.8rem", "1"],
+            title: ["4.5rem", "1.1"],
         },
         extend: {
             fontFamily: {
