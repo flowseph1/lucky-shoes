@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Sneaker {
+  id             Int        @id @default(autoincrement())
+  name           String
+  brand          Brand      @relation(fields: [brandId], references: [id])
+  categories     Category[]
+  gridPictureURL String?
+  pictures       Picture[]
+  tags           Tag[]
+  color          String
+  gender         String
+  slug           String
+  createdAt      DateTime   @default(now())
+  brandId        Int
+
+  @@index([brandId])
+}
+
+model Brand {
+  id      Int       @id @default(autoincrement())
+  name    String
+  Sneaker Sneaker[]
+}
+
+model Category {
+  id      Int       @id @default(autoincrement())
+  name    String
+  Sneaker Sneaker[]
+}
+
+model Tag {
+  id      Int       @id @default(autoincrement())
+  name    String
+  Sneaker Sneaker[]
+}
+
+model Picture {
+  id        Int     @id @default(autoincrement())
+  url       String
+  sneaker   Sneaker @relation(fields: [sneakerId], references: [id])
+  sneakerId Int
+
+  @@index([sneakerId])
+}
