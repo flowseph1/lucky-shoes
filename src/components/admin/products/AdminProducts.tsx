@@ -1,5 +1,5 @@
 import { Button, Input, Subtitle, Title } from "@/components/ui";
-import { ISneaker } from "@/interfaces";
+import { ISneaker } from "@/types";
 import { useCallback, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import AdminProductTable from "./AdminProductTable";

@@ -1,6 +1,6 @@
 import { Input, InputSelect, InputSelector, Modal } from "@/components/ui";
 import { brands, colores, genders } from "@/data";
-import { LabelValue, TableRow } from "@/interfaces/table";
+import { LabelValue, TableRow } from "@/types/table";
 import { useGetCategoriesQuery } from "@/store/api";
 import Image from "next/image";
 import { useForm } from "react-hook-form";

@@ -1,4 +1,4 @@
-import { TableData, TableRow } from "@/interfaces/table";
+import { TableData, TableRow } from "@/types/table";
 import { AnimatePresence, motion } from "framer-motion";
 
 interface TableBodyProps {

@@ -1,12 +1,10 @@
-import { data } from "@/data";
-import { ISneaker } from "@/interfaces";
 import classNames from "classnames";
 import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import AdminProductTableRow from "./AdminProductTableRow";
 import { Table } from "@/components/ui";
 import Image from "next/image";
-import { TableRow } from "@/interfaces/table";
+import { TableRow } from "@/types/table";
 
 const dataHeader = [
   "ID",

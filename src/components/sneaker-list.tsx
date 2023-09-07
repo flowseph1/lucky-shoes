@@ -1,27 +1,26 @@
 "use client";
 
-import React from "react";
-import { data } from "@/data";
-import { ISneaker } from "@/interfaces";
 import { IconButton } from "@/components/ui";
+import { products } from "@/data/producst";
+import { Sneaker } from "@/types/sneaker";
 import { FiShoppingBag } from "react-icons/fi";
 import { IoHeartOutline } from "react-icons/io5";
 
-export function ProductsList() {
+export function SneakerList({ sneakerList }: { sneakerList: Sneaker[] }) {
   return (
     <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-      {data.sneakers.map((sneaker) => (
-        <ProductItem sneaker={sneaker} key={sneaker.id} />
+      {sneakerList.map((sneaker) => (
+        <SneakerItem sneaker={sneaker} key={sneaker.id} />
       ))}
     </div>
   );
 }
 
 interface Props {
-  sneaker: ISneaker;
+  sneaker: Sneaker;
 }
 
-function ProductItem({ sneaker }: Props) {
+function SneakerItem({ sneaker }: Props) {
   return (
     <div className="group relative flex h-[27rem] w-full flex-col overflow-hidden rounded-lg border-[0.1rem] border-border-color hover:shadow-product-shadow">
       <div className="flex-1 bg-container-extra-light">
