@@ -14,7 +14,7 @@ const button = cva(
           "bg-primary-100 font-semibold text-primary-900 border-[0.1rem] border-primary-300 hover:bg-primary-200",
 
         tertiary:
-          "border-neutral-300 bg-neutral-500 hover:bg-neutral-400 border-[0.1rem]",
+          "border-[rgba(255,255,255,.05)] bg-[rgba(255,255,255,.02)] hover:bg-[rgba(255,255,255,.03)] border-[0.1rem] backdrop-blur",
       },
       size: {
         small: "h-10 px-5 text-sm",

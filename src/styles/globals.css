@@ -12,6 +12,11 @@
      src: url('/fonts/Smile\ Candy.ttf');
 }
 
+@font-face {
+     font-family: 'madi';
+     src: url('/fonts/MsMadi-Regular.ttf');
+}
+
 @layer base {
 
      :root {
@@ -19,7 +24,7 @@
      }
 
      html {
-          @apply text-text-light bg-background;
+          @apply text-purple-100/50 bg-background;
           font-size: 62.5%;
           line-height: 1.2;
      }

@@ -12,11 +12,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="antialiased">
         <Header />
         <ProviderWrapper>
           <Container>
-            <main className="pt-[var(--header-height)]">{children}</main>
+            <main>{children}</main>
           </Container>
         </ProviderWrapper>
         <Footer />

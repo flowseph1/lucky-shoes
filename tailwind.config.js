@@ -9,16 +9,17 @@ module.exports = {
             xxs: "1rem",
             xs: "1.2rem",
             sm: "1.3rem",
-            md: "1.4rem",
+            md: ["1.4rem", "1.3"],
             lg: "1.7rem",
             xl: "2.5rem",
             xxl: "3rem",
-            subtitle: ["1.8rem", "1"],
+            subtitle: ["2.5rem", "1"],
             title: ["4.5rem", "1.1"],
         },
         extend: {
             fontFamily: {
                 neon: ["marquee", "sans-serif"],
+                madi: ["madi", "sans-serif"],
                 candy: ["smile", "sans-serif"],
             },
             colors: {
@@ -83,6 +84,7 @@ module.exports = {
             },
 
             backgroundImage: {
+                "hero": "radial-gradient(50% 38.81% at 50% 61.19%,rgba(142,75,250,.05) 0,rgba(5,5,11,0) 100%),radial-gradient(50% 36.46% at 50% 36.46%,rgba(142,75,250,.08) 0,rgba(5,5,11,0) 100%)",
                 "border-gradient":
                     "linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%)",
 

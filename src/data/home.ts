@@ -1,8 +1,8 @@
 export const homeData = {
   hero: {
-    headline:
-      "Mejora tu estilo con zapatos deportivos <span class='text-tertiary/70'>Premium<span>",
-    subheadline: "Descubra el par perfecto para cada paso de su viaje",
+    headline: "Bienvenido a la Revolución del Estilo",
+    subheadline:
+      "Eleva tu estilo con nuestra exclusiva colección de zapatillas que combinan comodidad, tendencia y un toque urbano.",
     callToAction: "Ver colección",
     callToActionLink: "#sneaker-list",
   },
