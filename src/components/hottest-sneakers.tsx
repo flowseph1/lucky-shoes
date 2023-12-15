@@ -3,7 +3,7 @@ import { hottestSneakersData } from "@/data/hottest-sneakers";
 import { Sneaker } from "@/types/sneaker";
 import Image from "next/image";
 
-export function HottestSneakers({ data }: Sneaker[]) {
+export function HottestSneakers({ data }: { data: Sneaker[] }) {
   return (
     <div className="flex flex-col gap-8">
       <Subtitle subtitle="Los mas buscados 🔥" />

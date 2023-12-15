@@ -1,9 +1,8 @@
 import "@/styles/globals.css";
 
 import { Container } from "@/components/container";
-import ProviderWrapper from "@/store/ProviderWrapper";
-import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
 
 export default function RootLayout({
   children,
@@ -14,11 +13,9 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <Header />
-        <ProviderWrapper>
-          <Container>
-            <main>{children}</main>
-          </Container>
-        </ProviderWrapper>
+        <Container>
+          <main>{children}</main>
+        </Container>
         <Footer />
       </body>
     </html>
