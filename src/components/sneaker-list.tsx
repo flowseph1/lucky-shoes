@@ -7,13 +7,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { FiShoppingBag } from "react-icons/fi";
 import { IoHeartOutline } from "react-icons/io5";
+import { Filters } from "./filters";
 
 export function SneakerList({ sneakerList }: { sneakerList: Sneaker[] }) {
   return (
-    <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-      {sneakerList.map((sneaker) => (
-        <SneakerItem sneaker={sneaker} key={sneaker.id} />
-      ))}
+    <div className="flex flex-col gap-16">
+      <Filters />
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        {sneakerList.map((sneaker) => (
+          <SneakerItem sneaker={sneaker} key={sneaker.id} />
+        ))}
+      </div>
     </div>
   );
 }
@@ -26,7 +31,7 @@ function SneakerItem({ sneaker }: Props) {
   return (
     <Link
       href={sneaker.slug}
-      className="group relative flex min-h-[27rem] w-full flex-col overflow-hidden rounded-lg border-[0.1rem] border-border-color group:"
+      className="group relative flex min-h-[27rem] w-full flex-col overflow-hidden rounded-lg border-[0.1rem] border-border-color group"
     >
       <div className="flex-1 bg-container-extra-light group-hover:bg-neutral-900">
         <div className="flex items-center justify-center">

@@ -15,7 +15,7 @@ const NAVBAR_ITEMS = [
 
 const Navbar = () => {
   return (
-    <ul className="flex h-full items-center space-x-10 text-text-light">
+    <ul className="hidden sm:flex h-full items-center space-x-10 text-text-light">
       {NAVBAR_ITEMS.map((item) => (
         <NavbarItem key={item.title} item={item} />
       ))}

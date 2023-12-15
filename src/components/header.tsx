@@ -2,6 +2,7 @@ import { Navbar } from "./navbar";
 import { SearchBar } from "./ui";
 import { Logo } from "./logo";
 import { Container } from "@/components/container";
+import { IoMenuOutline } from "react-icons/io5";
 
 export const Header = () => {
   return (
@@ -17,6 +18,8 @@ export const Header = () => {
                         <Button title="Registrarse" className="mr-10" intent="secondary" />
                         <Button title="Cuenta" className="mr-10" intent="tertiary" /> */}
             <SearchBar />
+
+            <IoMenuOutline className="block sm:hidden text-white" size={20} />
           </div>
         </div>
       </Container>

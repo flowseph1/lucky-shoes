@@ -37,7 +37,7 @@ export function Filters({ className }: { className?: string }) {
   };
 
   return (
-    <ul className={classNames("flex space-x-5", className)}>
+    <ul className={classNames("flex gap-5", className)}>
       {FILTERS.map((filter) => (
         <FilterItem
           key={filter.title}

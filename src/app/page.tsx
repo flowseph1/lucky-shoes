@@ -22,10 +22,9 @@ export default async function Page() {
   const homeData = await getHomeData();
 
   return (
-    <section className="flex flex-col gap-24">
+    <section className="flex flex-col">
       <Hero data={homeData.data.hero} />
       {/* <HottestSneakers data={hottestSneakersData.data} /> */}
-      <Filters />
       <SneakerList sneakerList={sneakersData.data} />
     </section>
   );

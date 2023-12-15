@@ -13,6 +13,8 @@ import {
   SiReebok,
 } from "react-icons/si";
 import { Logo } from "./logo";
+import { SectionTitle } from "./section-title";
+import { SectionSubtitle } from "./section-subtitle";
 
 export function Hero({ data }: { data: HomeData["hero"] }) {
   return (
@@ -20,15 +22,13 @@ export function Hero({ data }: { data: HomeData["hero"] }) {
       {/*  <div className=" px-6 py-2 rounded-full bg-white/5 backdrop-blur text-sm font-semibold border-[1px] border-white/10">
         <p>Descubre el Universo 🌌</p>
       </div> */}
-      <p className="text-[6rem] text-center font-bold text-white/70 max-w-6xl leading-[1] tracking-normal">
-        Underground Vibes: Explora tu Estilo Urbano
-      </p>
-      <p className="max-w-2xl text-lg text-center leading-relaxed">
+      <SectionTitle>Underground Vibes: Explora tu Estilo Urbano</SectionTitle>
+      <SectionSubtitle>
         Exclusiva colección de sneakers que combinan comodidad, tendencia y
         estilo urbano.
-      </p>
+      </SectionSubtitle>
 
-      <div className="flex gap-7">
+      <div className="flex-col sm:flex-row flex gap-7">
         <Button title="Descubrir Marcas" intent="tertiary" rounded="full" />
         <Button title="Ir a Instagram" />
       </div>
