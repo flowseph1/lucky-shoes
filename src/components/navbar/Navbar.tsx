@@ -6,10 +6,7 @@ const NAVBAR_ITEMS = [
     title: "Inicio",
   },
   {
-    title: "Marcas",
-  },
-  {
-    title: "Sneakers",
+    title: "Sobre Nosotros",
   },
 ];
 
