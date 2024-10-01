@@ -8,18 +8,20 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@prisma/client": "^4.13.0",
     "@reduxjs/toolkit": "^1.9.5",
+    "@tanstack/react-table": "^8.17.3",
     "@types/node": "18.15.11",
     "@types/react": "18.0.31",
     "@types/react-dom": "18.0.11",
     "autoprefixer": "^10.4.15",
     "class-variance-authority": "^0.5.1",
     "classnames": "^2.3.2",
-    "eslint-config-next": "^13.4.19",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.33.0",
     "framer-motion": "^10.12.4",
     "next": "^14.2.4",
     "postcss": "^8.4.29",
+    "postgres": "^3.4.4",
     "prisma": "^4.13.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -31,10 +33,7 @@
     "typescript": "5.0.3"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.6.0",
-    "@typescript-eslint/parser": "^6.6.0",
-    "eslint": "^8.48.0",
-    "prettier": "^2.8.7",
-    "prettier-plugin-tailwindcss": "^0.2.6"
+    "@biomejs/biome": "1.9.2",
+    "drizzle-kit": "^0.24.2"
   }
 }

@@ -27,7 +27,7 @@ export interface Sneaker {
   size_range: number[];
   sku: string;
   slug: string;
-  status: string;
+  status: "active" | "inactive";
   story_html: string | null;
   upper_material: string | null;
 }

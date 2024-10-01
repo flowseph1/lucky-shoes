@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1727577788090,
+      "tag": "0000_majestic_metal_master",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1727580350129,
+      "tag": "0001_add-brand-image",
+      "breakpoints": true
+    }
+  ]
+}

@@ -20,9 +20,9 @@ const OPTIONS = [
     icon: <MdOutlineDashboardCustomize />,
   },
   {
-    name: "Productos",
-    slug: "products",
-    href: "/admin/products",
+    name: "Sneakers",
+    slug: "sneakers",
+    href: "/admin/sneakers",
     icon: <PiSneaker />,
   },
   {
