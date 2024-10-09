@@ -1,8 +1,8 @@
-import { Button } from "@/components";
 import { AddBrandModal } from "@/components/admin/brand/add-brand-modal";
 import BrandsTable from "@/components/admin/brand/brands-table";
 import { FragmentContainer } from "@/components/admin/fragment-container";
 import { AdminHeading } from "@/components/admin/heading";
+import { Button } from "@/components/ui/buttons";
 import { IoMdAdd } from "react-icons/io";
 
 export interface Brand {
