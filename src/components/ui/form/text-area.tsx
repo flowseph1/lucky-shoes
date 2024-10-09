@@ -1,10 +1,8 @@
 import { InputLabel } from "@/components/ui/form/input-label";
-import { InputTextProps } from "@/types/form";
+import { TextAreaProps } from "@/types/form";
 import classNames from "classnames";
-import { memo } from "react";
 
-const Input = ({
-	type = "text",
+export function TextArea({
 	iconLeft,
 	iconRight,
 	placeholder = "Ingresar",
@@ -14,7 +12,7 @@ const Input = ({
 	label,
 	disabled,
 	...props
-}: InputTextProps) => {
+}: TextAreaProps) {
 	return (
 		<div
 			className={classNames(
@@ -24,28 +22,22 @@ const Input = ({
 			)}
 		>
 			{label && <InputLabel>{label}</InputLabel>}
-			<div
-				className={classNames(
-					"flex h-14 w-full items-center rounded-lg border-[0.1rem] border-neutral-50 bg-neutral-500 px-4 text-sm transition-shadow focus-within:shadow-input-shadow",
-					disabled ? "" : "hover:shadow-input-shadow",
-				)}
-			>
+			<div className="flex w-full">
 				{iconLeft && <div className="mr-3">{iconLeft}</div>}
-				<input
-					type={type}
+				<textarea
 					className={classNames(
-						"h-full w-full bg-transparent  outline-none placeholder:text-text-xx-light",
-						disabled ? "text-text-extra-light" : "text-text-base",
+						"flex min-h-[9rem] w-full items-center placeholder:text-text-xx-light rounded-lg border-[0.1rem] border-neutral-50 bg-neutral-500 p-4 text-sm transition-shadow focus-within:shadow-input-shadow outline-none",
+						disabled
+							? "text-text-extra-light"
+							: "text-text-base hover:shadow-input-shadow",
 					)}
 					placeholder={placeholder}
 					disabled={disabled}
-					{...props}
 					{...register}
+					{...props}
 				/>
 				{iconRight && <div className="ml-2">{iconRight}</div>}
 			</div>
 		</div>
 	);
-};
-
-export default memo(Input);
+}
