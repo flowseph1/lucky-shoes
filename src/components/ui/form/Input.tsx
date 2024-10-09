@@ -34,7 +34,7 @@ const Input = ({
 				<input
 					type={type}
 					className={classNames(
-						"h-full w-full bg-transparent  outline-none placeholder:text-text-xx-light",
+						"h-full w-full bg-transparent  outline-none placeholder:text-text-light",
 						disabled ? "text-text-extra-light" : "text-text-base",
 					)}
 					placeholder={placeholder}
