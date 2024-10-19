@@ -12,6 +12,7 @@ interface ModalProps {
 	children: React.ReactNode;
 	title?: string;
 	buttonTitle?: string;
+	disabled: boolean;
 	onClose?: () => void;
 	buttonAction?: () => void;
 }
@@ -21,6 +22,7 @@ function Modal_({
 	children,
 	name,
 	buttonTitle,
+	disabled,
 	onClose,
 	buttonAction,
 }: ModalProps) {
@@ -98,6 +100,7 @@ function Modal_({
 									intent="primary"
 									title={buttonTitle}
 									onClick={buttonAction}
+									disabled={disabled}
 								/>
 							)}
 						</div>

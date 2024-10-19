@@ -26,7 +26,7 @@ export function TextArea({
 				{iconLeft && <div className="mr-3">{iconLeft}</div>}
 				<textarea
 					className={classNames(
-						"flex min-h-[9rem] w-full items-center placeholder:text-text-light rounded-lg border-[0.1rem] border-neutral-50 bg-neutral-500 p-4 text-sm transition-shadow focus-within:shadow-input-shadow outline-none",
+						"flex min-h-[9rem] w-full items-center placeholder:text-white/15 rounded-lg border-[0.1rem] border-neutral-50 bg-neutral-500 p-4 text-sm transition-shadow focus-within:shadow-input-shadow outline-none placeholder:font-light",
 						disabled
 							? "text-text-extra-light"
 							: "text-text-base hover:shadow-input-shadow",

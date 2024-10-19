@@ -31,6 +31,10 @@ const button = cva(
 				xl: "rounded-xl",
 				full: "rounded-full",
 			},
+
+			disabled: {
+				true: "cursor-not-allowed opacity-50",
+			},
 		},
 
 		defaultVariants: {
@@ -46,6 +50,7 @@ interface BaseProps
 		VariantProps<typeof button> {
 	title: string;
 	leftIcon?: React.ReactNode;
+	disabled?: boolean;
 }
 
 interface LinkType extends BaseProps {
@@ -64,11 +69,13 @@ const Button = (props: ButtonProps) => {
 	if ("onClick" in props) {
 		return (
 			<button
+				disabled={props.disabled}
 				type="button"
 				className={button({
 					intent: props.intent,
 					size: props.size,
 					className: props.className,
+					disabled: props.disabled,
 					rounded: props.rounded,
 				})}
 				onClick={props.onClick}
@@ -84,6 +91,7 @@ const Button = (props: ButtonProps) => {
 					intent: props.intent,
 					size: props.size,
 					className: props.className,
+					disabled: props.disabled,
 					rounded: props.rounded,
 				})}
 				href={props.href}
