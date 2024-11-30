@@ -1,17 +1,19 @@
-import { AdminSideBar } from "@/components/admin/sidebar";
-import { Container } from "@/components/container";
+import { AdminHeader } from '@/components/admin/header'
+import { AdminSideBar } from '@/components/admin/sidebar'
+import { Container } from '@/components/container'
 
 export default function AdminLayout({
-  children,
+	children,
 }: {
-  children: React.ReactNode;
+	children: React.ReactNode
 }) {
-  return (
-    <Container>
-      <div className="flex flex-row min-h-screen py-20">
-        <AdminSideBar />
-        <div className="flex-1">{children}</div>
-      </div>
-    </Container>
-  );
+	return (
+		<div className="flex flex-row min-h-screen ">
+			<AdminSideBar />
+			<div className="flex flex-col flex-1">
+				<AdminHeader />
+				<div className="flex-1">{children}</div>
+			</div>
+		</div>
+	)
 }

@@ -1,43 +1,49 @@
-import { InputLabel } from "@/components/ui/form/input-label";
-import { TextAreaProps } from "@/types/form";
-import classNames from "classnames";
+import { InputError } from '@/components/ui/form/input-error'
+import { InputLabel } from '@/components/ui/form/input-label'
+import { TextAreaProps } from '@/types/form'
+import classNames from 'classnames'
 
 export function TextArea({
 	iconLeft,
 	iconRight,
-	placeholder = "Ingresar",
+	placeholder = 'Ingresar',
 	className,
 	register,
 	fullWidth,
 	label,
 	disabled,
+	error,
+	name,
 	...props
 }: TextAreaProps) {
 	return (
 		<div
 			className={classNames(
-				"inline-flex flex-col",
+				'inline-flex flex-col',
 				className,
-				fullWidth && "w-full",
+				fullWidth && 'w-full',
 			)}
 		>
-			{label && <InputLabel>{label}</InputLabel>}
+			{label && <InputLabel htmlFor={name!}>{label}</InputLabel>}
 			<div className="flex w-full">
 				{iconLeft && <div className="mr-3">{iconLeft}</div>}
 				<textarea
 					className={classNames(
-						"flex min-h-[9rem] w-full items-center placeholder:text-white/15 rounded-lg border-[0.1rem] border-neutral-50 bg-neutral-500 p-4 text-sm transition-shadow focus-within:shadow-input-shadow outline-none placeholder:font-light",
+						'flex min-h-[9rem] w-full items-center placeholder:text-white/15 rounded-lg border-[0.1rem] border-neutral-50 bg-neutral-500 p-4 text-sm transition-shadow focus-within:shadow-input-shadow outline-none placeholder:font-light',
 						disabled
-							? "text-text-extra-light"
-							: "text-text-base hover:shadow-input-shadow",
+							? 'text-text-extra-light'
+							: 'text-text-base hover:shadow-input-shadow',
 					)}
 					placeholder={placeholder}
 					disabled={disabled}
+					id={name!}
+					name={name}
 					{...register}
 					{...props}
 				/>
 				{iconRight && <div className="ml-2">{iconRight}</div>}
 			</div>
+			{error && <InputError error={error} />}
 		</div>
-	);
+	)
 }

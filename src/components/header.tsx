@@ -1,8 +1,8 @@
 import { Navbar } from "./navbar";
-import { SearchBar } from "./ui";
 import { Logo } from "./logo";
 import { Container } from "@/components/container";
 import { IoMenuOutline } from "react-icons/io5";
+import { SearchBar } from "@/components/ui/search-bar";
 
 export const Header = () => {
   return (

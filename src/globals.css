@@ -3,74 +3,120 @@
 @tailwind utilities;
 
 @font-face {
-     font-family: 'marquee';
-     src: url('/fonts/marquee\ moon.ttf');
+  font-family: "marquee";
+  src: url("/fonts/marquee\ moon.ttf");
 }
 
 @font-face {
-     font-family: 'smile';
-     src: url('/fonts/Smile\ Candy.ttf');
+  font-family: "smile";
+  src: url("/fonts/Smile\ Candy.ttf");
 }
 
 @font-face {
-     font-family: 'madi';
-     src: url('/fonts/MsMadi-Regular.ttf');
+  font-family: "madi";
+  src: url("/fonts/MsMadi-Regular.ttf");
 }
 
 @layer base {
+  :root {
+    --header-height: 6rem;
+  }
 
-     :root {
-          --header-height: 6rem;
-     }
+  html {
+    @apply text-purple-100/50 bg-background;
+    font-size: 62.5%;
+    line-height: 1.2;
+  }
 
-     html {
-          @apply text-purple-100/50 bg-background;
-          font-size: 62.5%;
-          line-height: 1.2;
-     }
+  body {
+    @apply text-md;
+  }
 
-     body {
-          @apply text-md
-     }
+  dialog {
+    transition:
+      display 0.5s allow-discrete,
+      overlay 0.5s allow-discrete;
+    animation: close 0.5s forwards;
+    &[open] {
+      animation: open 0.5s forwards;
+    }
+  }
 
+  .toast {
+  }
 
+  @keyframes open {
+    from {
+      opacity: 0;
+      translate: 0px 5px;
+    }
+    to {
+      opacity: 1;
+      translate: 0px 0px;
+    }
+  }
+
+  @keyframes close {
+    from {
+      opacity: 1;
+      translate: 0px 0px;
+    }
+    to {
+      opacity: 0;
+      translate: 0px 5px;
+    }
+  }
 }
 
 @layer utilities {
-     .logo-shadow {
-          text-shadow: 0 0 4px #4700d8, 0 0 11px #4700d8, 0 0 19px #4700d8, 0 0 40px #4700d8, 0 0 80px #4700d8,
-               0 0 90px #4700d8, 0 0 100px #4700d8, 0 0 150px #4700d8;
-     }
+  .logo-shadow {
+    text-shadow:
+      0 0 4px #4700d8,
+      0 0 11px #4700d8,
+      0 0 19px #4700d8,
+      0 0 40px #4700d8,
+      0 0 80px #4700d8,
+      0 0 90px #4700d8,
+      0 0 100px #4700d8,
+      0 0 150px #4700d8;
+  }
 
-     .logo-shadow2 {
-          text-shadow: 0 0 4px #4d77ff, 0 0 11px #4d77ff, 0 0 19px #4d77ff, 0 0 40px #4d77ff, 0 0 80px #4d77ff,
-               0 0 90px #4d77ff, 0 0 100px #4d77ff, 0 0 150px #4d77ff;
-     }
+  .logo-shadow2 {
+    text-shadow:
+      0 0 4px #4d77ff,
+      0 0 11px #4d77ff,
+      0 0 19px #4d77ff,
+      0 0 40px #4d77ff,
+      0 0 80px #4d77ff,
+      0 0 90px #4d77ff,
+      0 0 100px #4d77ff,
+      0 0 150px #4d77ff;
+  }
 
-     .box-blur {
-          backdrop-filter: blur(0.9rem);
-     }
+  .box-blur {
+    backdrop-filter: blur(0.9rem);
+  }
 
-     .lock-scroll {
-          overflow: hidden;
-     }
+  .lock-scroll {
+    overflow: hidden;
+  }
 
-     *::-webkit-scrollbar {
-          width: 8px;
-          /* height: 20px; */
-     }
+  *::-webkit-scrollbar {
+    width: 8px;
+    /* height: 20px; */
+  }
 
-     *::-webkit-scrollbar-track {
-          /* border-radius: 100vh; */
-          background: hsla(233, 53%, 6%, 1);
-     }
+  *::-webkit-scrollbar-track {
+    /* border-radius: 100vh; */
+    background: hsla(233, 53%, 6%, 1);
+  }
 
-     *::-webkit-scrollbar-thumb {
-          background: hsla(233, 36%, 8%, 1);
-          border-radius: 100vh;
-     }
+  *::-webkit-scrollbar-thumb {
+    background: hsla(233, 36%, 8%, 1);
+    border-radius: 100vh;
+  }
 
-     *::-webkit-scrollbar-thumb:hover {
-          background: hsla(233, 27%, 12%, 1);
-     }
+  *::-webkit-scrollbar-thumb:hover {
+    background: hsla(233, 27%, 12%, 1);
+  }
 }

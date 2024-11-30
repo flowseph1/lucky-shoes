@@ -1,47 +1,137 @@
-"use client";
+'use client'
 
-import { InputFileItem } from "@/components/ui/form/input-file/input-file-item";
-import { Control, Controller, FieldValues, Path } from "react-hook-form";
+import { InputError } from '@/components/ui/form/input-error'
+import { FilePreview } from '@/components/ui/form/input-file/file-preview'
+import { InputFilePlaceholder } from '@/components/ui/form/input-file/input-file-placeholder'
+import { InputLabel } from '@/components/ui/form/input-label'
+import { cn } from '@/lib/utils'
+import { InputFileProps } from '@/types/form'
+import { createClient } from '@supabase/supabase-js'
+import { useEffect, useRef, useState } from 'react'
 
-export interface InputFileProps<T extends FieldValues>
-  extends React.InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
-  subtitle?: string;
-  className?: string;
-  control: Control<T>;
-  name: Path<T>;
-  placeholder?: string;
-  error?: string;
-  disabled?: boolean;
-}
+const supabaseClient = createClient(
+	process.env.NEXT_PUBLIC_SUPABASE_URL ?? '',
+	process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? '',
+)
 
-export type FilePreview =
-  | {
-      url: string;
-      name: string;
-    }
-  | {
-      icon: string;
-      name: string;
-    };
+export function InputFile({
+	label,
+	subtitle,
+	multiple,
+	className,
+	error,
+	name,
+	filePath,
+	required,
+	defaultValue,
+	...props
+}: InputFileProps) {
+	const fileInputRef = useRef<HTMLInputElement | null>(null)
+	const inputRef = useRef<HTMLInputElement | null>(null)
+	const [filePreviews, setFilePreviews] = useState<FileList | null>()
 
-export function InputFile<T extends FieldValues>({
-  control,
-  name,
-  ...props
-}: InputFileProps<T>) {
-  return (
-    <Controller
-      control={control}
-      name={name}
-      render={({ field: { onChange, value } }) => (
-        <InputFileItem
-          onChange={onChange}
-          value={value}
-          name={name as string}
-          {...props}
-        />
-      )}
-    />
-  );
+	const handleChange = (fileUrl: string) => {
+		if (multiple) {
+			inputRef.current!.value = fileUrl
+		} else {
+			inputRef.current!.value = fileUrl
+		}
+	}
+	const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+		setFilePreviews(e.target.files)
+	}
+	const handleReset = () => {
+		setFilePreviews(null)
+		fileInputRef.current!.value = ''
+		inputRef.current!.value = ''
+	}
+
+	const handleDelete = (fileName: string) => {
+		if (!filePreviews) return
+		if (filePreviews.length === 1) {
+			setFilePreviews(null)
+			return
+		}
+		const filterFileList = new DataTransfer()
+		for (const file of filePreviews) {
+			if (file.name !== fileName) {
+				filterFileList.items.add(file)
+			}
+		}
+		setFilePreviews(filterFileList.files)
+	}
+	const handleFormResetEffect = () => {
+		const input = inputRef.current
+		if (!input) return
+		const form = input.closest('form')
+		if (!form) return
+		form.addEventListener('reset', handleReset)
+		return () => {
+			form.removeEventListener('reset', handleReset)
+		}
+	}
+	const handleDefaultValueEffect = () => {
+		if (defaultValue) {
+			inputRef.current!.value = defaultValue as string
+		} else {
+			inputRef.current!.value = ''
+		}
+	}
+
+	useEffect(handleFormResetEffect, [])
+
+	return (
+		<div className={cn('inline-flex flex-col', className)}>
+			{label && <InputLabel htmlFor={name!}>{label}</InputLabel>}
+			<div
+				className={cn(
+					'flex justify-center cursor-pointer items-center min-h-[14rem] p-4 rounded-lg border-dashed border-[0.1rem] border-neutral-50 bg-neutral-700 hover:bg-neutral-500 transition-colors text-sm',
+					{
+						'justify-start items-start cursor-defau2lt hover:bg-neutral-700':
+							!!filePreviews,
+					},
+				)}
+				onClick={() => fileInputRef.current?.click()}
+			>
+				{filePreviews ? (
+					<>
+						{Array.from(filePreviews).map((file) => (
+							<FilePreview
+								key={file.name}
+								file={file}
+								filePath={filePath}
+								supabaseClient={supabaseClient}
+								handleChange={handleChange}
+								onDelete={handleDelete}
+							/>
+						))}
+					</>
+				) : (
+					<InputFilePlaceholder
+						multiple={multiple ?? false}
+						subtitle={subtitle ?? ''}
+					/>
+				)}
+
+				<input
+					ref={fileInputRef}
+					type="file"
+					className="hidden"
+					onChange={handleInputChange}
+					name={name}
+					{...props}
+				/>
+
+				<input
+					type="hidden"
+					name={name}
+					ref={inputRef}
+					className="hidden"
+					id={name}
+					defaultValue={defaultValue}
+				/>
+			</div>
+			{error && <InputError error={error} />}
+		</div>
+	)
 }
