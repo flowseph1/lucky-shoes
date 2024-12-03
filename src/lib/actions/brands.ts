@@ -1,6 +1,7 @@
 'use server'
 
 import { AddBrandSchema } from '@/components/admin/brand/add-validators'
+import { SUPABASE_BUCKET_NAME } from '@/lib/constants'
 import { db } from '@/lib/db'
 import { BrandInsert, brands } from '@/lib/db/schema'
 import { supabaseClient } from '@/lib/supabase/server'
@@ -49,25 +50,28 @@ export async function insertBrand(prevState: any, formData: FormData) {
 	}
 }
 
-export async function deleteBrand(id: number) {
+export async function deleteBrand(prevState: any, formData: FormData) {
 	try {
+		const id = Number(formData.get('id'))
+
 		/* Get the brand to delete */
 		const brand = await db.select().from(brands).where(eq(brands.id, id))
 
 		/* Delete the brand */
 		const res = await db.delete(brands).where(eq(brands.id, id))
 
+		const imageName = brand[0].image?.split('/').pop()
+
 		/* Remove image from storage */
-		const storagePath = `brands/${brand[0].image}`
 		const { error } = await supabaseClient.storage
-			.from(storagePath)
-			.remove([storagePath])
+			.from(SUPABASE_BUCKET_NAME)
+			.remove([`brands/${imageName}`])
 
 		if (error) {
 			return ApiResponse({
 				success: false,
 				code: 500,
-				message: error.message,
+				message: `Brand deleted, but image not removed from storage: ${error.message}`,
 			})
 		}
 

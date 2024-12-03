@@ -5,9 +5,7 @@ import { Modal } from '@/components/modal'
 import Input from '@/components/ui/form/Input'
 import { InputFile } from '@/components/ui/form/input-file/input-file'
 import { TextArea } from '@/components/ui/form/text-area'
-import { useToasts } from '@/hooks/useToasts'
 import { insertBrand } from '@/lib/actions/brands'
-import { getUuid } from '@/lib/utils'
 import { useActionState } from 'react'
 
 export function AddModal() {

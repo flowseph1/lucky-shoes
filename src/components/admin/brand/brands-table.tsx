@@ -2,12 +2,9 @@
 
 import { Table } from '@/components/table'
 import { TableAction } from '@/components/table-action'
-import { deleteBrand } from '@/lib/actions/brands'
 import { Brand } from '@/lib/db/schema'
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table'
 import Image from 'next/image'
-import { FaEdit } from 'react-icons/fa'
-import { FiEdit, FiEdit2, FiEdit3 } from 'react-icons/fi'
 import { IoTrash } from 'react-icons/io5'
 import { MdEdit } from 'react-icons/md'
 
@@ -41,10 +38,12 @@ const columns: ColumnDef<Brand, any>[] = [
 		cell: (info) => {
 			return (
 				<div className="flex gap-3">
-					<TableAction onClick={() => deleteBrand(info.row.original.id)}>
+					<TableAction href={`/admin/brands/edit/${info.row.original.id}`}>
 						<MdEdit />
 					</TableAction>
-					<TableAction onClick={() => deleteBrand(info.row.original.id)}>
+					<TableAction
+						href={`/admin/brands?modal=delete&id=${info.row.original.id}&name=${info.row.original.name}&description=${info.row.original.shortDescription}`}
+					>
 						<IoTrash />
 					</TableAction>
 				</div>
