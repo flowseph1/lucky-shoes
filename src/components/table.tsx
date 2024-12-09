@@ -1,8 +1,12 @@
+import { FilterNotFound } from '@/components/table/filter-not-found'
+import { Pagination } from '@/components/table/pagination'
 import { SearchBar } from '@/components/table/search-bar'
+import { Button } from '@/components/ui/buttons'
 import {
 	ColumnDef,
 	flexRender,
 	getCoreRowModel,
+	getFilteredRowModel,
 	getPaginationRowModel,
 	useReactTable,
 } from '@tanstack/react-table'
@@ -15,19 +19,30 @@ export function Table({
 	columns: ColumnDef<any, any>[]
 	data: unknown[]
 }) {
+	const [term, setTerm] = useState('')
+
 	const table = useReactTable({
 		columns: columns as ColumnDef<unknown>[],
 		data,
 		getCoreRowModel: getCoreRowModel(),
 		getPaginationRowModel: getPaginationRowModel(),
+		getFilteredRowModel: getFilteredRowModel(),
+		filterFns: {
+			search: (row, columnId, filterValue) => {
+				const value = row.getValue(columnId)
+				if (typeof value !== 'string') return false
+				return value.toLowerCase().includes(filterValue.toLowerCase())
+			},
+		},
+		state: {
+			globalFilter: term,
+		},
 	})
-
-	const [term, setTerm] = useState('')
 
 	return (
 		<div className="flex flex-col gap-10">
 			<SearchBar term={term} setTerm={setTerm} />
-			<div className="border border-neutral-300 rounded-md overflow-hidden">
+			<div className="border border-neutral-300 rounded-md">
 				<table className="w-full">
 					<thead>
 						{table.getHeaderGroups().map((headerGroup) => (
@@ -47,7 +62,7 @@ export function Table({
 						))}
 					</thead>
 
-					<tbody>
+					<tbody className="relative">
 						{table.getRowModel().rows.map((row) => (
 							<tr
 								key={row.id}
@@ -60,68 +75,12 @@ export function Table({
 								))}
 							</tr>
 						))}
+						{table.getRowModel().rows.length === 0 && (
+							<FilterNotFound term={term} setTerm={setTerm} />
+						)}
 					</tbody>
-
-					<tfoot className="w-full">
-						<tr className="border-t border-t-neutral-300 bg-neutral-400 w-full">
-							{/*  <select
-              value={table.getState().pagination.pageSize}
-              onChange={(e) => {
-                table.setPageSize(Number(e.target.value));
-              }}
-            >
-              {[10, 20, 30, 40, 50].map((pageSize) => (
-                <option key={pageSize} value={pageSize}>
-                  {pageSize}
-                </option>
-              ))}
-            </select> */}
-						</tr>
-					</tfoot>
 				</table>
-				<div className="p-5 flex justify-between">
-					<div className="flex gap-2">
-						<p className="text-sm">Filas por pagina</p>
-						<select
-							value={table.getState().pagination.pageSize}
-							onChange={(e) => {
-								table.setPageSize(Number(e.target.value))
-							}}
-						>
-							{[10, 20, 30, 40, 50].map((pageSize) => (
-								<option key={pageSize} value={pageSize}>
-									{pageSize}
-								</option>
-							))}
-						</select>
-					</div>
-					<div>
-						<button
-							onClick={() => table.firstPage()}
-							disabled={!table.getCanPreviousPage()}
-						>
-							{'<<'}
-						</button>
-						<button
-							onClick={() => table.previousPage()}
-							disabled={!table.getCanPreviousPage()}
-						>
-							{'<'}
-						</button>
-						<button
-							onClick={() => table.nextPage()}
-							disabled={!table.getCanNextPage()}
-						>
-							{'>'}
-						</button>
-						<button
-							onClick={() => table.lastPage()}
-							disabled={!table.getCanNextPage()}
-						>
-							{'>>'}
-						</button>
-					</div>
-				</div>
+				<Pagination table={table} />
 			</div>
 		</div>
 	)
