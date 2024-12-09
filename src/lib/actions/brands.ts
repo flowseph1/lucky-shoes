@@ -52,17 +52,13 @@ export async function insertBrand(prevState: any, formData: FormData) {
 
 export async function deleteBrand(prevState: any, formData: FormData) {
 	try {
+		/* Delete the brand from db */
 		const id = Number(formData.get('id'))
-
-		/* Get the brand to delete */
-		const brand = await db.select().from(brands).where(eq(brands.id, id))
-
-		/* Delete the brand */
 		const res = await db.delete(brands).where(eq(brands.id, id))
 
+		/* Delete brand image from storage */
+		const brand = await db.select().from(brands).where(eq(brands.id, id))
 		const imageName = brand[0].image?.split('/').pop()
-
-		/* Remove image from storage */
 		const { error } = await supabaseClient.storage
 			.from(SUPABASE_BUCKET_NAME)
 			.remove([`brands/${imageName}`])
