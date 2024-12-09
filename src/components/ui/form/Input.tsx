@@ -1,3 +1,4 @@
+import { InputContainer } from '@/components/ui/form/input-container'
 import { InputError } from '@/components/ui/form/input-error'
 import { InputLabel } from '@/components/ui/form/input-label'
 import { cn } from '@/lib/utils'
@@ -23,12 +24,7 @@ const Input = ({
 			className={cn('inline-flex flex-col', className, fullWidth && 'w-full')}
 		>
 			{label && <InputLabel htmlFor={name!}>{label}</InputLabel>}
-			<div
-				className={cn(
-					'flex h-14 w-full items-center rounded-lg border-[0.1rem] border-neutral-50 bg-neutral-500 px-4 text-sm transition-shadow focus-within:shadow-input-shadow',
-					disabled ? '' : 'hover:shadow-input-shadow',
-				)}
-			>
+			<InputContainer classNames="px-4 text-sm">
 				{iconLeft && <div className="mr-3">{iconLeft}</div>}
 				<input
 					type={type}
@@ -44,7 +40,7 @@ const Input = ({
 					{...register}
 				/>
 				{iconRight && <div className="ml-2">{iconRight}</div>}
-			</div>
+			</InputContainer>
 
 			{error && <InputError error={error} />}
 		</div>

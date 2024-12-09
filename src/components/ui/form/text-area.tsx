@@ -1,3 +1,4 @@
+import { InputContainer } from '@/components/ui/form/input-container'
 import { InputError } from '@/components/ui/form/input-error'
 import { InputLabel } from '@/components/ui/form/input-label'
 import { TextAreaProps } from '@/types/form'
@@ -27,20 +28,19 @@ export function TextArea({
 			{label && <InputLabel htmlFor={name!}>{label}</InputLabel>}
 			<div className="flex w-full">
 				{iconLeft && <div className="mr-3">{iconLeft}</div>}
-				<textarea
-					className={classNames(
-						'flex min-h-[9rem] w-full items-center placeholder:text-white/15 rounded-lg border-[0.1rem] border-neutral-50 bg-neutral-500 p-4 text-sm transition-shadow focus-within:shadow-input-shadow outline-none placeholder:font-light',
-						disabled
-							? 'text-text-extra-light'
-							: 'text-text-base hover:shadow-input-shadow',
-					)}
-					placeholder={placeholder}
-					disabled={disabled}
-					id={name!}
-					name={name}
-					{...register}
-					{...props}
-				/>
+				<InputContainer classNames="min-h-[9rem] w-full text-sm">
+					<textarea
+						className={
+							'h-full w-full bg-transparent outline-none p-4 placeholder:text-white/15 placeholder:font-light text-text-base'
+						}
+						placeholder={placeholder}
+						disabled={disabled}
+						id={name!}
+						name={name}
+						{...register}
+						{...props}
+					/>
+				</InputContainer>
 				{iconRight && <div className="ml-2">{iconRight}</div>}
 			</div>
 			{error && <InputError error={error} />}

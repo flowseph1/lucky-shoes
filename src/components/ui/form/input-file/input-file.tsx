@@ -83,12 +83,11 @@ export function InputFile({
 	return (
 		<div className={cn('inline-flex flex-col', className)}>
 			{label && <InputLabel htmlFor={name!}>{label}</InputLabel>}
-			<div
-				className={cn(
-					'flex justify-center cursor-pointer items-center min-h-[14rem] p-4 rounded-lg border-dashed border-[0.1rem] border-neutral-50 bg-neutral-700 hover:bg-neutral-500 transition-colors text-sm',
+			<InputContainer
+				classNames={cn(
+					'flex justify-center cursor-pointer items-center min-h-[14rem] p-4 rounded-lg text-sm',
 					{
-						'justify-start items-start cursor-defau2lt hover:bg-neutral-700':
-							!!filePreviews,
+						'justify-start items-start cursor-default': !!filePreviews,
 					},
 				)}
 				onClick={() => fileInputRef.current?.click()}
@@ -130,7 +129,7 @@ export function InputFile({
 					id={name}
 					defaultValue={defaultValue}
 				/>
-			</div>
+			</InputContainer>
 			{error && <InputError error={error} />}
 		</div>
 	)
