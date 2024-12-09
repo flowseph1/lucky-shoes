@@ -1,12 +1,8 @@
-import { FieldErrors } from 'react-hook-form'
-
-export interface ApiResponse<T, E extends FieldErrors> {
+export interface ApiResponse<T = {}> {
 	success: boolean
+	code: number
 	message: string
 	data?: T
-	error?: {
-		code: number
-		message: string
-		validations?: E
-	}
+	validations?: Record<string, string | string[]>
+	fields?: Record<string, string | undefined>
 }
