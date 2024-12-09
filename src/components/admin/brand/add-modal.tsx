@@ -1,24 +1,33 @@
 'use client'
 
 import { Alert } from '@/components/alert'
-import { Modal } from '@/components/modal'
+import { Modal, ModalRef } from '@/components/modal'
 import Input from '@/components/ui/form/Input'
 import { InputFile } from '@/components/ui/form/input-file/input-file'
 import { TextArea } from '@/components/ui/form/text-area'
+import { useFormToast } from '@/hooks/use-form-toasts'
 import { insertBrand } from '@/lib/actions/brands'
-import { useActionState } from 'react'
+import { useActionState, useEffect, useRef } from 'react'
 
 export function AddModal() {
+	const modalRef = useRef<ModalRef>(null)
 	const [state, action, isPending] = useActionState(insertBrand, undefined)
 
+	const handleFormSubmitEffect = () => {
+		if (state) {
+			modalRef.current?.close()
+		}
+	}
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+	useEffect(handleFormSubmitEffect, [state])
+	useFormToast(state)
+
 	return (
-		<Modal name="add">
+		<Modal name="add" ref={modalRef}>
 			<Modal.Header title="Agregar Marca" />
 			<form className="w-[500px]" action={action}>
 				<Modal.Body>
-					{state?.success && (
-						<Alert type="success" message={state.message} className="mb-8" />
-					)}
 					<div className="grid grid-cols-1 gap-8">
 						<Input
 							label="Nombre*"

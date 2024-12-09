@@ -1,7 +1,7 @@
 'use client'
 
 import { Modal, ModalRef } from '@/components/modal'
-import { useToasts } from '@/hooks/use-toasts'
+import { useFormToast } from '@/hooks/use-form-toasts'
 import { deleteBrand } from '@/lib/actions/brands'
 import { redirect, useSearchParams } from 'next/navigation'
 import { useActionState, useEffect, useRef } from 'react'
@@ -15,11 +15,6 @@ export function DeleteModal() {
 	const id = params.get('id')
 	const name = params.get('name')
 
-	useToasts({
-		successMessages: state?.success ? state?.message : undefined,
-		errorMessages: state?.success ? undefined : state?.message,
-	})
-
 	const handleRequestDoneEffect = () => {
 		if (state) {
 			modalRef.current?.close()
@@ -28,6 +23,7 @@ export function DeleteModal() {
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(handleRequestDoneEffect, [state])
+	useFormToast(state)
 
 	if (modal !== 'delete') return null
 
