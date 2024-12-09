@@ -73,7 +73,7 @@ const ModalBase = forwardRef<ModalRef, ModalProps>(
 					ref={dialogRef}
 					key={key}
 					onClick={handleClose}
-					className="bg-neutral-600 rounded-xl shadow-xl text-white/90 border-[1px] border-neutral-50 backdrop:bg-black/30"
+					className="bg-neutral-900 rounded-xl shadow-xl text-white/90 border-[1px] border-neutral-50 backdrop:bg-black/30"
 					onKeyDown={(e) => {
 						if (e.key === 'Escape') {
 							e.preventDefault()
@@ -93,7 +93,7 @@ const ModalBase = forwardRef<ModalRef, ModalProps>(
 export function ModalHeader({ title }: { title: string }) {
 	const { handleClose } = useContext(ModalContext)
 	return (
-		<div className="flex justify-between py-5 px-6 border-b-[1px] border-b-neutral-400 bg-neutral-900">
+		<div className="flex justify-between py-5 px-6 border-b-[1px] border-b-neutral-400">
 			<p className="text-[1.7rem] font-semibold text-text-base">{title}</p>
 			<button
 				type="button"
@@ -107,9 +107,7 @@ export function ModalHeader({ title }: { title: string }) {
 }
 
 export function ModalBody({ children }: { children: React.ReactNode }) {
-	return (
-		<div className="min-w-[300px] py-7 px-6 bg-neutral-900">{children}</div>
-	)
+	return <div className="min-w-[300px] py-7 px-6">{children}</div>
 }
 
 export function ModalFooter({
@@ -120,7 +118,7 @@ export function ModalFooter({
 	return (
 		<div
 			className={cn(
-				'flex justify-end gap-5 py-5 px-6 border-t-[1px] border-t-neutral-400 bg-neutral-900/40',
+				'flex justify-end gap-5 py-5 px-6 border-t-[1px] border-t-neutral-400',
 			)}
 		>
 			{addCancelButton && (
