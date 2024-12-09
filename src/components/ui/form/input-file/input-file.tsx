@@ -1,5 +1,6 @@
 'use client'
 
+import { InputContainer } from '@/components/ui/form/input-container'
 import { InputError } from '@/components/ui/form/input-error'
 import { FilePreview } from '@/components/ui/form/input-file/file-preview'
 import { InputFilePlaceholder } from '@/components/ui/form/input-file/input-file-placeholder'
@@ -38,6 +39,7 @@ export function InputFile({
 		}
 	}
 	const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (!e.target.files || Object.keys(e.target.files).length === 0) return
 		setFilePreviews(e.target.files)
 	}
 	const handleReset = () => {

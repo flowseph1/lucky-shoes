@@ -55,7 +55,9 @@ export const FilePreview_ = ({
 		const { error } = await supabaseClient.storage
 			.from(SUPABASE_BUCKET_NAME)
 			.remove([`${filePath}/${fileName}`])
-		console.log('Error attempting to delete file', error?.message)
+		if (error) {
+			console.log('Error attempting to delete file', error?.message)
+		}
 	}
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
