@@ -1,4 +1,6 @@
-export const hottestSneakersData = [
+import type { Sneaker } from "@/types/sneaker";
+
+export const hottestSneakersData: Sneaker[] = [
   {
     box_condition: "good_condition",
     brand_name: "Nike",

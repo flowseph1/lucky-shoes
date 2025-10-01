@@ -1,9 +1,9 @@
 export const homeData = {
   hero: {
-    headline: "Bienvenido a la Revolución del Estilo",
-    subheadline:
-      "Eleva tu estilo con nuestra exclusiva colección de zapatillas que combinan comodidad, tendencia y un toque urbano.",
-    callToAction: "Ver colección",
-    callToActionLink: "#sneaker-list",
+    headline: "Underground Vibes: Explora tu Estilo Urbano",
+    subHeadline:
+      "Exclusiva colección de sneakers que combinan comodidad, tendencia y estilo urbano.",
+    callToAction: "Descubrir Marcas",
+    callToAction2: "Ir a Instagram",
   },
 };

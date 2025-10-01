@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
-export type LabelValue = {label: string | ReactNode, value: string | number};
+export type LabelValue = { label: string | ReactNode; value: string | number };
 
 export type TableData = string[] | { [key: string]: string | LabelValue }[];
 

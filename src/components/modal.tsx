@@ -2,10 +2,10 @@
 
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { IoClose } from "react-icons/io5";
-import { motion } from "framer-motion";
 
 interface ModalProps {
 	name: string;
@@ -15,13 +15,7 @@ interface ModalProps {
 	buttonAction?: () => void;
 }
 
-export function Modal({
-	title,
-	children,
-	name,
-	buttonTitle,
-	buttonAction,
-}: ModalProps) {
+export function Modal({ title, children, name, buttonTitle, buttonAction }: ModalProps) {
 	const dialogRef = useRef<HTMLDialogElement>(null);
 	const pathname = usePathname();
 	const searchParams = useSearchParams();
@@ -47,7 +41,7 @@ export function Modal({
 		<motion.dialog
 			ref={dialogRef}
 			onClick={handleClose}
-			className="bg-neutral-600 rounded-xl shadow-xl text-white/90 border-[1px] border-neutral-50"
+			className="bg-neutral-600 rounded-xl shadow-xl text-white/90 border border-neutral-50"
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
@@ -55,7 +49,7 @@ export function Modal({
 			<div onClick={(e) => e.stopPropagation()} className="">
 				{/* Header */}
 				{title && (
-					<div className="flex justify-between py-5 px-6 border-b-[1px] border-b-neutral-300">
+					<div className="flex justify-between py-5 px-6 border-b border-b-neutral-300">
 						<p className="text-lg font-semibold">{title}</p>
 						<button
 							type="button"
@@ -72,20 +66,13 @@ export function Modal({
 
 				{/* Footer */}
 				<div
-					className={cn(
-						"flex justify-between py-5 px-6 border-t-[1px] border-t-neutral-300",
-						{
-							"!justify-end": !buttonTitle,
-						},
-					)}
+					className={cn("flex justify-between py-5 px-6 border-t border-t-neutral-300", {
+						"justify-end!": !buttonTitle,
+					})}
 				>
 					<Button intent="tertiary" title="Cancelar" onClick={handleClose} />
 					{buttonTitle && buttonAction && (
-						<Button
-							intent="primary"
-							title={buttonTitle}
-							onClick={buttonAction}
-						/>
+						<Button intent="primary" title={buttonTitle} onClick={buttonAction} />
 					)}
 				</div>
 			</div>

@@ -1,6 +1,17 @@
 {
-    "cSpell.words": [
-        "postgresql",
-        "supabase"
-    ]
+	"cSpell.words": ["postgresql", "supabase"],
+
+	// Set Biome as default formatter
+	"editor.defaultFormatter": "biomejs.biome",
+
+	// Enable format on save
+	"editor.formatOnSave": true,
+
+	// Organize imports on save
+	"editor.codeActionsOnSave": {
+		"source.organizeImports.biome": "explicit"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	}
 }

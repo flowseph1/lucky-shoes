@@ -3,6 +3,7 @@ import { AddBrandModal } from "@/components/admin/brand/add-brand-modal";
 import BrandsTable from "@/components/admin/brand/brands-table";
 import { FragmentContainer } from "@/components/admin/fragment-container";
 import { AdminHeading } from "@/components/admin/heading";
+import { Suspense } from "react";
 import { IoMdAdd } from "react-icons/io";
 
 export interface Brand {
@@ -34,7 +35,7 @@ const DATA_TABLE: Brand[] = [
 	},
 ];
 
-export default function BrandsPage({ params }: { params: { modal: "add" } }) {
+export default function BrandsPage() {
 	return (
 		<FragmentContainer>
 			<AdminHeading
@@ -52,7 +53,9 @@ export default function BrandsPage({ params }: { params: { modal: "add" } }) {
 				<BrandsTable data={DATA_TABLE} />
 			</div>
 
-			<AddBrandModal />
+			<Suspense fallback={null}>
+				<AddBrandModal />
+			</Suspense>
 		</FragmentContainer>
 	);
 }

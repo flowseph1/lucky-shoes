@@ -1,9 +1,10 @@
 import classNames from "classnames";
-import React, { memo } from "react";
+import type React from "react";
+import { memo } from "react";
 import {
 	FieldValues,
 	UseFormRegister,
-	UseFormRegisterReturn,
+	type UseFormRegisterReturn,
 } from "react-hook-form/dist/types";
 import InputLabel from "./InputLabel";
 
@@ -31,18 +32,12 @@ const Input = ({
 	disabled,
 }: IInput) => {
 	return (
-		<div
-			className={classNames(
-				"inline-flex flex-col",
-				className,
-				fullWidth && "w-full",
-			)}
-		>
+		<div className={classNames("inline-flex flex-col", className, fullWidth && "w-full")}>
 			{label && <InputLabel label={label} />}
 			<div
 				className={classNames(
 					"flex h-14 w-full items-center rounded-lg border-[0.1rem] border-neutral-50 bg-neutral-500 px-4 text-sm transition-shadow focus-within:shadow-input-shadow",
-					disabled ? "" : "hover:shadow-input-shadow",
+					disabled ? "" : "hover:shadow-input-shadow"
 				)}
 			>
 				<label className={"flex w-full"}>
@@ -51,7 +46,7 @@ const Input = ({
 						type={type}
 						className={classNames(
 							"h-full w-full bg-transparent  outline-none placeholder:text-text-xx-light",
-							disabled ? "text-text-extra-light" : "text-text-base",
+							disabled ? "text-text-extra-light" : "text-text-base"
 						)}
 						placeholder={placeholder}
 						disabled={disabled}

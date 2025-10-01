@@ -1,4 +1,4 @@
-import { ClassValue, clsx } from "clsx";
+import { type ClassValue, clsx } from "clsx";
 import { useCallback } from "react";
 import { twMerge } from "tailwind-merge";
 

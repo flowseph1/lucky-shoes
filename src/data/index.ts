@@ -1,61 +1,61 @@
 export const brands = [
-  {
-    name: "Nike",
-  },
+	{
+		name: "Nike",
+	},
 
-  {
-    name: "Air Jordan",
-  },
+	{
+		name: "Air Jordan",
+	},
 
-  {
-    name: "Converse",
-  },
+	{
+		name: "Converse",
+	},
 
-  {
-    name: "Champion",
-  },
+	{
+		name: "Champion",
+	},
 
-  {
-    name: "Adidas",
-  },
+	{
+		name: "Adidas",
+	},
 ];
 
 export const genders = [
-  {
-    name: "Masculino",
-  },
+	{
+		name: "Masculino",
+	},
 
-  {
-    name: "Unisex",
-  },
+	{
+		name: "Unisex",
+	},
 
-  {
-    name: "Femenino",
-  },
+	{
+		name: "Femenino",
+	},
 ];
 
 export const colores = [
-  {
-    name: "Negro",
-  },
+	{
+		name: "Negro",
+	},
 
-  {
-    name: "Blanco",
-  },
+	{
+		name: "Blanco",
+	},
 
-  {
-    name: "Rojo",
-  },
-  {
-    name: "Azul",
-  },
-  {
-    name: "Morado",
-  },
-  {
-    name: "Amarillo",
-  },
-  {
-    name: "Verde",
-  },
+	{
+		name: "Rojo",
+	},
+	{
+		name: "Azul",
+	},
+	{
+		name: "Morado",
+	},
+	{
+		name: "Amarillo",
+	},
+	{
+		name: "Verde",
+	},
 ];
