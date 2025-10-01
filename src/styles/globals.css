@@ -101,7 +101,7 @@
 
 	/* Box Shadows */
 	--shadow-container-shadow: rgb(50 63 100 / 50%) 0px 1px 20px;
-	--shadow-filter-shadow: rgb(50 63 100 / 50%) 0px 1px 40px;
+	--shadow-filter-shadow: rgb(50 63 100 / 20%) 0px 1px 40px;
 	--shadow-product-shadow: rgb(50 63 100 / 50%) 0px 1px 5px;
 	--shadow-input-shadow: 0 0 0 3px hsla(233, 33%, 9%, 0.7);
 

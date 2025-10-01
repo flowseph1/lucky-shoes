@@ -7,7 +7,7 @@ const Logo = () => {
 				Lucky
 			</div>
 
-			<div className="absolute logo-shadow animate-flicker font-madi text-[3rem] text-logo-secondary -rotate-12 left-12 top-12">
+			<div className="absolute logo-shadow animate-flicker font-madi text-[4rem] text-logo-secondary -rotate-12 left-7 top-11">
 				Shoes
 			</div>
 			{/* <div className="logo-shadow2 font-candy text-sm text-logo-secondary"> HN</div> */}

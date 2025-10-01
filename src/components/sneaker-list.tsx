@@ -1,19 +1,24 @@
 "use client";
 
-import { IconButton } from "@/components/ui";
+import { Button, IconButton } from "@/components/ui";
 import { SneakerWithBrand } from "@/lib/api/sneakers";
+import { SelectBrand } from "@/lib/db/schema";
 import Image from "next/image";
 import Link from "next/link";
-import { FiShoppingBag } from "react-icons/fi";
+import { CiSearch, CiShop } from "react-icons/ci";
+import { FiArrowRight, FiShoppingBag } from "react-icons/fi";
 import { IoHeartOutline } from "react-icons/io5";
+import { MdLooks } from "react-icons/md";
+import { PiArrowLineRight, PiArrowRight } from "react-icons/pi";
 import { Filters } from "./filters";
 
 export function SneakerList({
 	sneakerList,
-}: { sneakerList: SneakerWithBrand[] }) {
+	brands,
+}: { sneakerList: SneakerWithBrand[]; brands: SelectBrand[] }) {
 	return (
 		<div className="flex flex-col gap-16">
-			<Filters />
+			<Filters brands={brands} />
 
 			<div className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
 				{sneakerList.map((sneaker) => (
@@ -32,9 +37,10 @@ function SneakerItem({ sneaker }: Props) {
 	return (
 		<Link
 			href={sneaker.slug}
-			className="group relative flex min-h-108 w-full flex-col overflow-hidden rounded-lg border-[0.1rem] border-border-color group"
+			className="group relative flex min-h-108 w-full flex-col overflow-hidden rounded-2xl border-[0.1rem] border-border-color group"
 		>
-			<div className="flex-1 bg-container-extra-light group-hover:bg-neutral-900">
+			{/* Top Section */}
+			<div className="relative flex-1 bg-container-extra-light group-hover:bg-neutral-900">
 				<div className="flex items-center justify-center">
 					{sneaker.image && (
 						<Image
@@ -46,23 +52,34 @@ function SneakerItem({ sneaker }: Props) {
 						/>
 					)}
 				</div>
+
+				{sneaker.isNew && (
+					<div className="absolute top-5 left-5 bg-tertiary/20 border border-tertiary/40 rounded-full px-3 py-1">
+						<p className="text-xs text-tertiary font-semibold">Nuevo!</p>
+					</div>
+				)}
 			</div>
-			<div className="flex flex-col flex-1 bg-container-light p-5 shrink-0 gap-4">
-				<div className="inline-flex h-fit cursor-pointer truncate rounded-full bg-container/50 px-4 py-1 text-[1rem] w-fit ">
+
+			{/* Bottom Section */}
+			<div className="flex flex-col flex-1 bg-[rgba(255,255,255,.02)] px-5 py-8 shrink-0 gap-3">
+				<p className="text-sm text-text-light border border-border-color rounded-full px-4 py-1 w-fit">
 					{sneaker.brandName}
+				</p>
+				<div className="text-sm font-semibold">{sneaker.name}</div>
+				<div className="text-xs text-text-light/50 font-semibold line-clamp-2">
+					{sneaker.shortDescription}
 				</div>
 
-				<div className="text-sm font-semibold">{sneaker.name}</div>
-
-				<div className="flex flex-1 justify-between">
-					<div className="flex flex-1 flex-wrap space-x-3">
-						{/* <div className="inline-flex cursor-pointer truncate rounded-full bg-container px-4 py-1 text-xs">
-              {sneaker.nickname}
-            </div> */}
-					</div>
-
+				<div className="flex flex-1">
 					<div className="flex flex-1 items-end justify-end ">
-						<IconButton icon={<FiShoppingBag />} onClick={() => null} />
+						<Button
+							title="Cotizar"
+							size="small"
+							rounded="full"
+							leftIcon={<CiShop size={20} />}
+							onClick={() => null}
+						/>
+						{/* <Button title="Ver más" intent="primary" onClick={() => null} /> */}
 					</div>
 				</div>
 			</div>

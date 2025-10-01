@@ -1,11 +1,13 @@
 {
+	"formatter": {
+		"enabled": true
+	},
 	"linter": {
 		"enabled": true,
 		"rules": {
 			"recommended": false,
 			"a11y": {
 				"noAriaUnsupportedElements": "warn",
-				"noBlankTarget": "off",
 				"useAltText": "warn",
 				"useAriaPropsForRole": "warn",
 				"useValidAriaProps": "warn",

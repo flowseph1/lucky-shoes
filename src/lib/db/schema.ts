@@ -69,4 +69,5 @@ export const sneakerImagesRelations = relations(sneakerImages, ({ one }) => ({
 
 export type InsertSneaker = typeof sneakers.$inferInsert;
 export type SelectSneaker = typeof sneakers.$inferSelect;
+export type SelectBrand = typeof brands.$inferSelect;
 export type BrandInsert = typeof brands.$inferInsert;

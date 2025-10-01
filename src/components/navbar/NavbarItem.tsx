@@ -5,7 +5,7 @@ interface Props {
 }
 
 const NavbarItem = ({ item }: Props) => {
-	return <li className="cursor-pointer font-semibold hover:text-text-base">{item.title}</li>;
+	return <li className="cursor-pointer hover:text-text-base">{item.title}</li>;
 };
 
 export default NavbarItem;

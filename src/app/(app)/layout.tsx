@@ -6,9 +6,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<>
 			<Header />
-			<Container>
-				<div>{children}</div>
-			</Container>
+			<Container className="pb-20">{children}</Container>
 			<Footer />
 		</>
 	);
