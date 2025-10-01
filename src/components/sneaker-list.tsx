@@ -1,21 +1,21 @@
 "use client";
 
-import { Button, IconButton } from "@/components/ui";
-import { SneakerWithBrand } from "@/lib/api/sneakers";
-import { SelectBrand } from "@/lib/db/schema";
 import Image from "next/image";
 import Link from "next/link";
-import { CiSearch, CiShop } from "react-icons/ci";
-import { FiArrowRight, FiShoppingBag } from "react-icons/fi";
+import { CiShop } from "react-icons/ci";
 import { IoHeartOutline } from "react-icons/io5";
-import { MdLooks } from "react-icons/md";
-import { PiArrowLineRight, PiArrowRight } from "react-icons/pi";
+import { Button } from "@/components/ui";
+import { SneakerWithBrand } from "@/lib/api/sneakers";
+import { SelectBrand } from "@/lib/db/schema";
 import { Filters } from "./filters";
 
 export function SneakerList({
 	sneakerList,
 	brands,
-}: { sneakerList: SneakerWithBrand[]; brands: SelectBrand[] }) {
+}: {
+	sneakerList: SneakerWithBrand[];
+	brands: SelectBrand[];
+}) {
 	return (
 		<div className="flex flex-col gap-16">
 			<Filters brands={brands} />

@@ -2,6 +2,11 @@
 	"formatter": {
 		"enabled": true
 	},
+	"json": {
+		"formatter": {
+			"trailingCommas": "none"
+		}
+	},
 	"linter": {
 		"enabled": true,
 		"rules": {
@@ -17,10 +22,21 @@
 				"noChildrenProp": "error",
 				"useExhaustiveDependencies": "warn",
 				"useHookAtTopLevel": "error",
-				"useJsxKeyInIterable": "error"
+				"useJsxKeyInIterable": "error",
+				"noUnusedImports": {
+					"fix": "safe",
+					"level": "error"
+				}
 			},
 			"security": { "noDangerouslySetInnerHtmlWithChildren": "error" },
 			"suspicious": { "noCommentText": "error", "noDuplicateJsxProps": "error" }
+		}
+	},
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
 		}
 	}
 }

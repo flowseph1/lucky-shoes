@@ -1,14 +1,11 @@
 import Link from "next/link";
 import { CiInstagram } from "react-icons/ci";
-import { FiGithub } from "react-icons/fi";
 import { IoLogoGithub } from "react-icons/io";
-import { PiGithubLogo } from "react-icons/pi";
 import { Container } from "@/components/container";
-import { Logo } from "@/components/logo";
 
 export function Footer() {
 	return (
-		<footer className="bg-neutral-900 py-20">
+		<footer className="bg-neutral-900 py-20 border-t border-neutral-300">
 			<Container className="flex justify-between items-center">
 				<div>
 					<p className="text-xs">Made by</p>
