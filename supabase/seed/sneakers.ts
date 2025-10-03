@@ -23,7 +23,6 @@ export const sneakersData: Array<InsertSneaker> = [
 			"\"This Nike Air Jordan 1 Retro High OG 'Shadow' 2018 is a retro re-release of an original 1985 colorway. The shoe features a black and medium grey leather upper with a white midsole and black outsole. ...",
 		longDescription:
 			"\"This Nike Air Jordan 1 Retro High OG 'Shadow' 2018 is a retro re-release of an original 1985 colorway. The shoe features a black and medium grey leather upper with a white midsole and black outsole. It also features OG Nike Air branding on the tongue and the Wings logo on the ankle collar. It was last retroed in 2013",
-		isAvailable: true,
 		isNew: false,
 		status: "active",
 	},
@@ -37,7 +36,6 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/020/806/444/original/507844_00.png.png",
 		shortDescription: "The Air Jordan is a Black sneaker from Air Jordan.",
 		longDescription: null,
-		isAvailable: true,
 		isNew: true,
 		status: "active",
 	},
@@ -53,7 +51,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			'"The Air Jordan 11 Retro ‘Space Jam’ 2016 commemorates the 20th anniversary of the movie ‘Space Jam.’ Worn by Michael Jordan as a Player Exclusive (PE) in both the movie and the 1995 NBA Playoffs',
 		longDescription:
 			'"The Air Jordan 11 Retro ‘Space Jam’ 2016 commemorates the 20th anniversary of the movie ‘Space Jam.’ Worn by Michael Jordan as a Player Exclusive (PE) in both the movie and the 1995 NBA Playoffs',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -67,7 +65,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/008/870/353/original/235806_00.png.png",
 		shortDescription: '"For Chicago Bulls Fans',
 		longDescription: '"For Chicago Bulls Fans',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -83,7 +81,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			'"The Air Jordan 11 Retro ‘Legend Blue’ 2014 was based on the 1996 Jordan 11 ‘Columbia’ first worn by Jordan during the 1996 NBA All-Star Game. Inspired by the classic colorway Jordan wore as a Tarheel',
 		longDescription:
 			'"The Air Jordan 11 Retro ‘Legend Blue’ 2014 was based on the 1996 Jordan 11 ‘Columbia’ first worn by Jordan during the 1996 NBA All-Star Game. Inspired by the classic colorway Jordan wore as a Tarheel',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -97,7 +95,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/021/545/481/original/509480_00.png.png",
 		shortDescription: "The Air Jordan is a Black sneaker from Air Jordan.",
 		longDescription: null,
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -111,7 +109,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/012/910/690/original/554724_065.png.png",
 		shortDescription: "The Air Jordan is a Black sneaker from Air Jordan.",
 		longDescription: null,
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -127,7 +125,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			'"The 2019 edition of the Air Jordan 4 ‘Bred’ celebrates the 30th anniversary of the classic silhouette',
 		longDescription:
 			'"The 2019 edition of the Air Jordan 4 ‘Bred’ celebrates the 30th anniversary of the classic silhouette',
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -141,7 +139,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/018/675/311/original/464372_00.png.png",
 		shortDescription: '"The 2019 edition of the Air Jordan 6 Retro ‘Infrared’ is true to the original colorway',
 		longDescription: '"The 2019 edition of the Air Jordan 6 Retro ‘Infrared’ is true to the original colorway',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -157,7 +155,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"\"The Wmns Air Jordan 12 Retro 'Reptile' sneaker draws details from the 1996 classic and elevates them with luxe style additions. This April 2019-released",
 		longDescription:
 			"\"The Wmns Air Jordan 12 Retro 'Reptile' sneaker draws details from the 1996 classic and elevates them with luxe style additions. This April 2019-released",
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -171,7 +169,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/018/071/547/original/479524_00.png.png",
 		shortDescription: '"Releasing in January 2019',
 		longDescription: '"Releasing in January 2019',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -185,7 +183,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/012/219/518/original/335047_00.png.png",
 		shortDescription: '"Inspired by Michael Jordan’s alma mater',
 		longDescription: '"Inspired by Michael Jordan’s alma mater',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -199,7 +197,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/021/474/777/original/TR_JSP_5_ICE.png.png",
 		shortDescription: "The Air Jordan is a Blue sneaker from Air Jordan.",
 		longDescription: null,
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -213,7 +211,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/012/478/518/original/365514_00.png.png",
 		shortDescription: '"Music artist Travis Scott hails from Houston',
 		longDescription: '"Music artist Travis Scott hails from Houston',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -227,7 +225,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/016/152/710/original/402491_00.png.png",
 		shortDescription: '"In 1985',
 		longDescription: '"In 1985',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -241,7 +239,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/018/783/111/original/488879_00.png.png",
 		shortDescription: '"The Travis Scott x Air Jordan 1 Retro High features a new look on the iconic silhouette',
 		longDescription: '"The Travis Scott x Air Jordan 1 Retro High features a new look on the iconic silhouette',
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -255,7 +253,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/021/321/847/original/473391_00.png.png",
 		shortDescription: '"Amsterdam-based boutique and streetwear brand',
 		longDescription: '"Amsterdam-based boutique and streetwear brand',
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -271,7 +269,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			'"The Air Jordan 1 Retro High OG ‘Turbo Green’ complements the silhouette’s clean lines with a classic two-tone design. A textured white leather base is contrasted by soft suede overlays in Turbo Green...',
 		longDescription:
 			'"The Air Jordan 1 Retro High OG ‘Turbo Green’ complements the silhouette’s clean lines with a classic two-tone design. A textured white leather base is contrasted by soft suede overlays in Turbo Green. The latter design element is burnished to give off a vintage aesthetic',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -285,7 +283,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/020/249/059/original/485842_00.png.png",
 		shortDescription: '"The Air Jordan 1 Retro High OG ‘Crimson Tint’ showcases a simple two-tone design',
 		longDescription: '"The Air Jordan 1 Retro High OG ‘Crimson Tint’ showcases a simple two-tone design',
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -299,7 +297,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/021/357/907/original/478963_00.png.png",
 		shortDescription: '"An original colorway of the Air Jordan 11 Low back in 2001',
 		longDescription: '"An original colorway of the Air Jordan 11 Low back in 2001',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -313,7 +311,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/020/270/533/original/CD6578_507.png.png",
 		shortDescription: "The Air Jordan is a Purple sneaker from Air Jordan.",
 		longDescription: null,
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -327,7 +325,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/009/559/594/original/144690_00.png.png",
 		shortDescription: '"Arriving in stores in February 2018',
 		longDescription: '"Arriving in stores in February 2018',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -343,7 +341,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			'"Air Jordan 1 Retro High OG ‘Origin Story’ was made to celebrate the animated film Spider-Man: Into the Spider-Verse. The high-top features a design that mirrors the pair worn by character Miles Moral...',
 		longDescription:
 			'"Air Jordan 1 Retro High OG ‘Origin Story’ was made to celebrate the animated film Spider-Man: Into the Spider-Verse. The high-top features a design that mirrors the pair worn by character Miles Morales',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -359,7 +357,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			'"The Air Jordan 12 Retro ‘Gym Red’ presents a monochromatic take on Tinker Hatfield’s 1996 design. The entirety of the mid-top silhouette is dipped in red',
 		longDescription:
 			'"The Air Jordan 12 Retro ‘Gym Red’ presents a monochromatic take on Tinker Hatfield’s 1996 design. The entirety of the mid-top silhouette is dipped in red',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -375,7 +373,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"\"The Air Jordan 11 Retro Low's iconic identity was founded when Michael Jordan returned to the game in 1995. Surfacing in June 2019",
 		longDescription:
 			"\"The Air Jordan 11 Retro Low's iconic identity was founded when Michael Jordan returned to the game in 1995. Surfacing in June 2019",
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -391,7 +389,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			'"The Air Jordan SB 1 Retro High is representative of the decades-old influence that the iconic shoe has had on skate culture. Revealed in May 2019',
 		longDescription:
 			'"The Air Jordan SB 1 Retro High is representative of the decades-old influence that the iconic shoe has had on skate culture. Revealed in May 2019',
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -405,7 +403,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/020/095/762/original/411931_00.png.png",
 		shortDescription: '"Instead of the usual two-tone color blocking',
 		longDescription: '"Instead of the usual two-tone color blocking',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -419,7 +417,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/021/317/617/original/SP_AJ1_LOW_BP.png.png",
 		shortDescription: "The Air Jordan is a White sneaker from Air Jordan.",
 		longDescription: null,
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -435,7 +433,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			'"The Air Jordan 11 Retro ‘Platinum Tint’ does away with the one detail most commonly associated with the classic silhouette—its shiny patent leather overlay. Instead',
 		longDescription:
 			'"The Air Jordan 11 Retro ‘Platinum Tint’ does away with the one detail most commonly associated with the classic silhouette—its shiny patent leather overlay. Instead',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -450,7 +448,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			'"The 2018 edition of the Air Jordan 11 Retro ‘Concord’ features ‘45’ stamped on the black heel tab—a nod to the jersey number that Michael Jordan wore upon his return to basketball following his first...',
 		longDescription:
 			'"The 2018 edition of the Air Jordan 11 Retro ‘Concord’ features ‘45’ stamped on the black heel tab—a nod to the jersey number that Michael Jordan wore upon his return to basketball following his first retirement. The rest of the build keeps the shoe’s signature details intact',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -466,7 +464,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			'"The Air Jordan 11 Retro Low ‘Navy Snakeskin’ returns for the first time since 2000. A true retro to the original',
 		longDescription:
 			'"The Air Jordan 11 Retro Low ‘Navy Snakeskin’ returns for the first time since 2000. A true retro to the original',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -482,7 +480,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"\"The Air Jordan 4 Retro OG 'Cement’ 2016 was one of the original four colorways released in 1989. The sneaker features the original White",
 		longDescription:
 			"\"The Air Jordan 4 Retro OG 'Cement’ 2016 was one of the original four colorways released in 1989. The sneaker features the original White",
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -496,7 +494,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/015/567/335/original/CM100018M.png.png",
 		shortDescription: '"The Champion Rally Pro sneaker packages street style in a sleek',
 		longDescription: '"The Champion Rally Pro sneaker packages street style in a sleek',
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -510,7 +508,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/018/552/840/original/476518_00.png.png",
 		shortDescription: '"Tyler',
 		longDescription: '"Tyler',
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -524,7 +522,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/015/298/767/original/77243_00.png.png",
 		shortDescription: '"This Comme des Garçons x Chuck Taylor All Star Hi features an off-white canvas upper',
 		longDescription: '"This Comme des Garçons x Chuck Taylor All Star Hi features an off-white canvas upper',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -540,7 +538,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"\"The Gucci Pursuit ‘72 Rubber Slide in ‘Black’ sneaker pays homage to the fashion house's roots with the iconic Web stripe—first developed by Gucci in the 1950s—taking the stage. The minimal",
 		longDescription:
 			"\"The Gucci Pursuit ‘72 Rubber Slide in ‘Black’ sneaker pays homage to the fashion house's roots with the iconic Web stripe—first developed by Gucci in the 1950s—taking the stage. The minimal",
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -554,7 +552,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/020/840/270/original/491192_00.png.png",
 		shortDescription: "The Nike is a Black sneaker from Nike.",
 		longDescription: null,
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -568,7 +566,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/020/627/570/original/491891_00.png.png",
 		shortDescription: '"In celebration of Air Max Day',
 		longDescription: '"In celebration of Air Max Day',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -582,7 +580,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/021/545/549/original/489359_00.png.png",
 		shortDescription: '"Nike and frequent collaborator Fear Of God designer',
 		longDescription: '"Nike and frequent collaborator Fear Of God designer',
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -596,7 +594,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/017/763/484/original/466439_00.png.png",
 		shortDescription: '"The Off-White x Air Max 90 ‘Black’ offers a unique blend of materials on the upper',
 		longDescription: '"The Off-White x Air Max 90 ‘Black’ offers a unique blend of materials on the upper',
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -612,7 +610,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			'"This monochromatic take on the Air Presto is the second time Virgil Abloh and Nike collaborated on this iconic silhouette. The July 2018 iteration came a few mere months after it’s two-tone predecess...',
 		longDescription:
 			'"This monochromatic take on the Air Presto is the second time Virgil Abloh and Nike collaborated on this iconic silhouette. The July 2018 iteration came a few mere months after it’s two-tone predecessor made it’s debut as part of Abloh and Nike’s ‘The Ten’ Collection. This pair showcases an all-black finish',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -626,7 +624,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/019/246/220/original/491897_00.png.png",
 		shortDescription: '"Sacai and Nike collaborate again',
 		longDescription: '"Sacai and Nike collaborate again',
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -640,7 +638,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/021/545/501/original/507173_00.png.png",
 		shortDescription: "The Nike is a Cream sneaker from Nike.",
 		longDescription: null,
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -654,7 +652,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/020/249/043/original/494127_00.png.png",
 		shortDescription: '"First spotted on the feet of atmos creative director Hirofumi Kojima during ComplexCon 2018',
 		longDescription: '"First spotted on the feet of atmos creative director Hirofumi Kojima during ComplexCon 2018',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -668,7 +666,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/019/994/877/original/AJ7747_800.png.png",
 		shortDescription: "The Nike is a Orange sneaker from Nike.",
 		longDescription: null,
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -684,7 +682,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"\"The Nike Air Max 90 QS 'Mars Landing' sneaker was released in March 2019 as an homage to the rover landing expedition on Mars. Fusing elements of the 1990 classic with official imagery of the Red Pla...",
 		longDescription:
 			"\"The Nike Air Max 90 QS 'Mars Landing' sneaker was released in March 2019 as an homage to the rover landing expedition on Mars. Fusing elements of the 1990 classic with official imagery of the Red Planet",
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -700,7 +698,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			'"The Off-White x Air Max 90 ‘Desert Ore’ represents yet another of Virgil Abloh’s fanciful takes on the retro silhouette. Unlike its stark black and white counterparts',
 		longDescription:
 			'"The Off-White x Air Max 90 ‘Desert Ore’ represents yet another of Virgil Abloh’s fanciful takes on the retro silhouette. Unlike its stark black and white counterparts',
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -716,7 +714,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			'"The April 2018 version of Virgil Abloh’s all-white Air VaporMax is mostly unchanged from the original pair from ‘The Ten.’ Stripped of color',
 		longDescription:
 			'"The April 2018 version of Virgil Abloh’s all-white Air VaporMax is mostly unchanged from the original pair from ‘The Ten.’ Stripped of color',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -732,7 +730,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			'"The ‘Sail’ colorway of Travis Scott’s Air Force 1 represents the Houston rapper’s second collaboration with Nike on the classic silhouette. Aside from swapping out the all-white finish of its predece...',
 		longDescription:
 			'"The ‘Sail’ colorway of Travis Scott’s Air Force 1 represents the Houston rapper’s second collaboration with Nike on the classic silhouette. Aside from swapping out the all-white finish of its predecessor with slightly darker Sail',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -746,7 +744,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/020/881/688/original/508101_00.png.png",
 		shortDescription: "The Nike is a White sneaker from Nike.",
 		longDescription: null,
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -760,7 +758,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/019/367/662/original/484799_00.png.png",
 		shortDescription: "The Nike is a White sneaker from Nike.",
 		longDescription: null,
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -774,7 +772,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/018/898/008/original/482531_00.png.png",
 		shortDescription: "The Nike is a White sneaker from Nike.",
 		longDescription: null,
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -790,7 +788,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"\"The Nike Air Force 1 Low is a modern take on the iconic white on white low top Air Force 1. Released in honor of the classic shoe's 25th anniversary in 2007",
 		longDescription:
 			"\"The Nike Air Force 1 Low is a modern take on the iconic white on white low top Air Force 1. Released in honor of the classic shoe's 25th anniversary in 2007",
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -804,7 +802,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/021/562/245/original/480142_00.png.png",
 		shortDescription: "The Nike is a White sneaker from Nike.",
 		longDescription: null,
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -818,7 +816,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/020/627/586/original/487222_00.png.png",
 		shortDescription: '"Created by acclaimed streetwear designer Jerry Lorenzo for release in April 2019',
 		longDescription: '"Created by acclaimed streetwear designer Jerry Lorenzo for release in April 2019',
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -832,7 +830,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/020/737/643/original/504006_00.png.png",
 		shortDescription: "\"From streetwear fashion designer Jerry Lorenzo comes the Air Fear of God Moc 'Pure Platinum",
 		longDescription: "\"From streetwear fashion designer Jerry Lorenzo comes the Air Fear of God Moc 'Pure Platinum",
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -846,7 +844,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/021/321/832/original/503571_00.png.png",
 		shortDescription: '"In honor of Air Max Day 2019',
 		longDescription: '"In honor of Air Max Day 2019',
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -862,7 +860,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"\"The Nike Air Max 97 'Triple White' features a white leather and mesh upper with Wolf Grey accents. Released in August of 2017",
 		longDescription:
 			"\"The Nike Air Max 97 'Triple White' features a white leather and mesh upper with Wolf Grey accents. Released in August of 2017",
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -876,7 +874,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/010/634/133/original/303217_00.png.png",
 		shortDescription: '"Released in March 2018',
 		longDescription: '"Released in March 2018',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -892,7 +890,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			'"The Vans Old Skool ‘Yacht Club’ showcases bold color blocking inspired by traditional nautical flags. The shoe’s upper is executed with canvas quarter panels in kelly green',
 		longDescription:
 			'"The Vans Old Skool ‘Yacht Club’ showcases bold color blocking inspired by traditional nautical flags. The shoe’s upper is executed with canvas quarter panels in kelly green',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -908,7 +906,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			'"The adidas Yeezy Boost 350 V2 lives up to its cult appeal through evolved design elements and advanced technology. Released June 2019',
 		longDescription:
 			'"The adidas Yeezy Boost 350 V2 lives up to its cult appeal through evolved design elements and advanced technology. Released June 2019',
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -922,7 +920,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/021/147/972/original/504187_00.png.png",
 		shortDescription: "The adidas is a Black sneaker from adidas.",
 		longDescription: null,
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -938,7 +936,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"\"The 5th Yeezy to drop since November 2017 — Yeezy Boost 350 V2 'Semi Frozen Yellow' and ‘Beluga 2.0",
 		longDescription:
 			"\"The 5th Yeezy to drop since November 2017 — Yeezy Boost 350 V2 'Semi Frozen Yellow' and ‘Beluga 2.0",
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -952,7 +950,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/021/545/467/original/512006_00.png.png",
 		shortDescription: "The adidas is a Blue sneaker from adidas.",
 		longDescription: null,
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -968,7 +966,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"\"Music and fashion icon Kanye West debuted the Yeezy Boost 700 at his Yeezy Season 5 fashion show in February 2017. This 'Analog' colorway released April 2019",
 		longDescription:
 			"\"Music and fashion icon Kanye West debuted the Yeezy Boost 700 at his Yeezy Season 5 fashion show in February 2017. This 'Analog' colorway released April 2019",
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -982,7 +980,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/021/357/863/original/508082_00.png.png",
 		shortDescription: '"Regarded as a cultural phenomenon',
 		longDescription: '"Regarded as a cultural phenomenon',
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -996,7 +994,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/008/654/534/original/152982_00.png.png",
 		shortDescription: '"With its name coming from the colorway similarities found on the first Yeezy Boost 350 V2',
 		longDescription: '"With its name coming from the colorway similarities found on the first Yeezy Boost 350 V2',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -1012,7 +1010,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			'"The adidas Yeezy Boost 700 ‘Inertia’ is part of the Yeezy Season 8 lineup that launched March 2019. The ‘Inertia’ colorway showcases the original 700 upper',
 		longDescription:
 			'"The adidas Yeezy Boost 700 ‘Inertia’ is part of the Yeezy Season 8 lineup that launched March 2019. The ‘Inertia’ colorway showcases the original 700 upper',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -1028,7 +1026,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			'"The Yeezy Boost 350 V2 ‘Sesame’ features a refined color palette that complements the shoe’s minimalist build. The breathable Primeknit upper keeps the heel tab and distinct center stitch detailing b...',
 		longDescription:
 			'"The Yeezy Boost 350 V2 ‘Sesame’ features a refined color palette that complements the shoe’s minimalist build. The breathable Primeknit upper keeps the heel tab and distinct center stitch detailing but loses the mirrored ‘SPLY-350’ branding. Underneath',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -1042,7 +1040,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/014/507/851/original/195483_00.png.png",
 		shortDescription: '"This inaugural colorway of Kanye West’s Yeezy Wave Runner 700 launched in November 2017',
 		longDescription: '"This inaugural colorway of Kanye West’s Yeezy Wave Runner 700 launched in November 2017',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -1055,7 +1053,7 @@ export const sneakersData: Array<InsertSneaker> = [
 		image: "https://image.goat.com/750/attachments/product_template_pictures/images/017/488/396/original/424152_00.png",
 		shortDescription: '"The Yeezy Boost 350 V2 ‘Static Non-Reflective’ is designed to stand out',
 		longDescription: '"The Yeezy Boost 350 V2 ‘Static Non-Reflective’ is designed to stand out',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -1069,7 +1067,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/018/666/882/original/486579_00.png.png",
 		shortDescription: '"Alongside an accompanying Crazy BYW',
 		longDescription: '"Alongside an accompanying Crazy BYW',
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -1085,7 +1083,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			'"The adidas Yeezy Boost 350 V2 ‘Clay’ updates the silhouette with a warm palette and semi-translucent',
 		longDescription:
 			'"The adidas Yeezy Boost 350 V2 ‘Clay’ updates the silhouette with a warm palette and semi-translucent',
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -1099,7 +1097,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/014/822/680/original/116662_00.png.png",
 		shortDescription: '"First released on April 29',
 		longDescription: '"First released on April 29',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -1115,7 +1113,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			'"The Yeezy Boost 700 ‘Salt’ follows a design trail originally blazed by the Yeezy 500 in November 2018. Like its predecessor',
 		longDescription:
 			'"The Yeezy Boost 700 ‘Salt’ follows a design trail originally blazed by the Yeezy 500 in November 2018. Like its predecessor',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -1129,7 +1127,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/014/979/033/original/105568_00.png.png",
 		shortDescription: '"Released on February 25',
 		longDescription: '"Released on February 25',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -1143,7 +1141,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/020/249/956/original/EF3326.png.png",
 		shortDescription: "The adidas is a White sneaker from adidas.",
 		longDescription: null,
-		isAvailable: true,
+		
 		isNew: true,
 		status: "active",
 	},
@@ -1157,7 +1155,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/012/598/505/original/348063_00.png.png",
 		shortDescription: '"Kanye West and adidas continued their partnership with the Yeezy Boost 350 V2 ‘Butter',
 		longDescription: '"Kanye West and adidas continued their partnership with the Yeezy Boost 350 V2 ‘Butter',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
@@ -1171,7 +1169,7 @@ export const sneakersData: Array<InsertSneaker> = [
 			"https://image.goat.com/750/attachments/product_template_pictures/images/016/928/118/original/155573_00.png.png",
 		shortDescription: '"Kanye West’s Yeezy Boost 350 V2 in Semi Frozen Yellow first hit stores in November 2017',
 		longDescription: '"Kanye West’s Yeezy Boost 350 V2 in Semi Frozen Yellow first hit stores in November 2017',
-		isAvailable: true,
+		
 		isNew: false,
 		status: "active",
 	},
