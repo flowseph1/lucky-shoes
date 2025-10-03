@@ -13,10 +13,10 @@ interface Props {
 
 export function SneakerItem({ sneaker }: Props) {
 	return (
-		<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+		<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex flex-1">
 			<Link
 				href={`/sneaker/${sneaker.slug}`}
-				className="group group relative flex min-h-108 w-full flex-col overflow-hidden rounded-2xl border-[0.1rem] border-border-color"
+				className="group group relative flex min-h-108 w-full flex-1 flex-col overflow-hidden rounded-2xl border-[0.1rem] border-border-color"
 			>
 				{/* Top Section */}
 				<div className="relative flex-1 bg-container-extra-light group-hover:bg-neutral-900">
