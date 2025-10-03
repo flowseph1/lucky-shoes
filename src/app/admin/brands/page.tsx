@@ -1,10 +1,10 @@
+import { Suspense } from "react";
+import { IoMdAdd } from "react-icons/io";
 import { Button } from "@/components";
 import { AddBrandModal } from "@/components/admin/brand/add-brand-modal";
 import BrandsTable from "@/components/admin/brand/brands-table";
 import { FragmentContainer } from "@/components/admin/fragment-container";
 import { AdminHeading } from "@/components/admin/heading";
-import { Suspense } from "react";
-import { IoMdAdd } from "react-icons/io";
 
 export interface Brand {
 	id: number;
@@ -38,10 +38,7 @@ const DATA_TABLE: Brand[] = [
 export default function BrandsPage() {
 	return (
 		<FragmentContainer>
-			<AdminHeading
-				title="Marcas"
-				subtitle="Gestiona las marcas de tu tienda"
-			/>
+			<AdminHeading title="Marcas" subtitle="Gestiona las marcas de tu tienda" />
 			<div className="flex flex-col gap-6">
 				<Button
 					title="Agregar Marca"

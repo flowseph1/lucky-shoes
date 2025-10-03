@@ -16,7 +16,7 @@ const InputAreaItem = ({ item, isSelected, onSelect }: InputAreaItemProps) => {
 				"mr-4 flex h-11 cursor-pointer items-center rounded-full border-[0.1rem] px-5 py-1",
 				isSelected
 					? "border-primary-300 bg-primary-100 font-semibold text-primary-900 hover:bg-primary-200"
-					: "border-neutral-300 bg-neutral-500 hover:bg-neutral-400"
+					: "border-neutral-300 bg-neutral-500 hover:bg-neutral-400",
 			)}
 		>
 			{isSelected && (

@@ -1,10 +1,9 @@
 "use client";
 
-import type { Brand } from "@/app/admin/brands/page";
-import { Table } from "@/components/table";
 import { type ColumnDef, createColumnHelper } from "@tanstack/react-table";
 import Image from "next/image";
-import { IoTrash } from "react-icons/io5";
+import type { Brand } from "@/app/admin/brands/page";
+import { Table } from "@/components/table";
 
 const columnHelper = createColumnHelper<Brand>();
 const columns: ColumnDef<Brand, any>[] = [
@@ -18,13 +17,7 @@ const columns: ColumnDef<Brand, any>[] = [
 	columnHelper.accessor("image", {
 		header: "Imagen",
 		cell: (info) => (
-			<Image
-				src={info.getValue()}
-				alt="Brand"
-				width={40}
-				height={40}
-				className="rounded-full bg-neutral-900"
-			/>
+			<Image src={info.getValue()} alt="Brand" width={40} height={40} className="rounded-full bg-neutral-900" />
 		),
 	}),
 ];

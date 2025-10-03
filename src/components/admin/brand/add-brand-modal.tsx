@@ -10,7 +10,7 @@ export function AddBrandModal() {
 	return (
 		<Modal title="Agregar Marca" name="add" buttonTitle="Agregar" buttonAction={handleAddBrand}>
 			<div className="w-[500px]">
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+				<div className="grid grid-cols-1 gap-8 md:grid-cols-2">
 					<Input label="Nombre" type="text" placeholder="Nombre de la marca" />
 					<Input label="Imagen" type="text" placeholder="Url de la imagen" />
 					<Input label="Descripción corta" type="text" placeholder="Descripción corta" />

@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import { memo } from "react";
 import type { Control, FieldValues } from "react-hook-form";
 import InputLabel from "../InputLabel";
 import Switch from "./Switch";
@@ -12,21 +12,12 @@ interface InputSwitchProps<T extends FieldValues> {
 	placeholder?: string;
 }
 
-function InputSwitch({
-	label,
-	subtitle,
-	className,
-	control,
-	name,
-	placeholder,
-}: InputSwitchProps<any>) {
+function InputSwitch({ label, subtitle, className, control, name, placeholder }: InputSwitchProps<any>) {
 	return (
 		<div className={className}>
 			{/* Label */}
 			{label && <InputLabel label={label} />}
-			{subtitle && (
-				<p className="text mb-5 max-w-sm text-xs font-normal text-text-xx-light">{subtitle}</p>
-			)}
+			{subtitle && <p className="text mb-5 max-w-sm font-normal text-text-xx-light text-xs">{subtitle}</p>}
 
 			{/* Switch */}
 			<Switch />

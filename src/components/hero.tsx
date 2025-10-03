@@ -8,11 +8,11 @@ import { SectionTitle } from "./section-title";
 
 export function Hero() {
 	return (
-		<div className="flex items-center justify-center py-52 flex-col gap-10 bg-hero">
+		<div className="flex flex-col items-center justify-center gap-10 bg-hero py-52">
 			<SectionTitle>{homeData.hero.headline}</SectionTitle>
 			<SectionSubtitle>{homeData.hero.subHeadline}</SectionSubtitle>
 
-			<div className="flex-col sm:flex-row flex gap-7">
+			<div className="flex flex-col gap-7 sm:flex-row">
 				<Button
 					title={homeData.hero.callToAction2}
 					intent="tertiary"

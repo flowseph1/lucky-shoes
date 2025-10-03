@@ -1,13 +1,12 @@
 "use client";
 
-import { Container } from "@/components/container";
-import { AdminLogo } from "@/components/logo/logo-admin";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { MdLabelImportantOutline, MdOutlineDashboardCustomize } from "react-icons/md";
 import { PiSneaker } from "react-icons/pi";
+import { AdminLogo } from "@/components/logo/logo-admin";
+import { cn } from "@/lib/utils";
 
 const OPTIONS = [
 	{
@@ -32,11 +31,11 @@ const OPTIONS = [
 
 export function AdminSideBar() {
 	return (
-		<div className="flex flex-col flex-[0.1] border-r border-neutral-100 min-w-92 px-5">
+		<div className="flex min-w-92 flex-[0.1] flex-col border-neutral-100 border-r px-5">
 			<AdminLogo />
 
 			{/* Navigation Bar */}
-			<ul className="flex flex-col w-full">
+			<ul className="flex w-full flex-col">
 				{OPTIONS.map((item) => (
 					<SideBarItem key={item.name} item={item} />
 				))}
@@ -55,14 +54,13 @@ interface SideBarProps {
 export function SideBarItem({ item }: { item: SideBarProps }) {
 	const pathname = usePathname();
 
-	const active =
-		item.slug === "dashboard" && pathname === "/admin" ? true : pathname.includes(item.slug);
+	const active = item.slug === "dashboard" && pathname === "/admin" ? true : pathname.includes(item.slug);
 
 	return (
 		<Link href={item.href}>
 			<li
-				className={cn("flex flex-row gap-2 items-center p-5 hover:text-white/70 rounded-lg", {
-					"text-white font-semibold bg-neutral-300 hover:text-white": active,
+				className={cn("flex flex-row items-center gap-2 rounded-lg p-5 hover:text-white/70", {
+					"bg-neutral-300 font-semibold text-white hover:text-white": active,
 				})}
 			>
 				<div>{item.icon}</div>

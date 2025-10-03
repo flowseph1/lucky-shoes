@@ -41,23 +41,21 @@ const InpuSelector = ({
 
 	return (
 		<div className={classNames(className, fullWidth && "w-full")}>
-			<div className="flex items-center ">
+			<div className="flex items-center">
 				{label && <InputLabel label={label} />}
-				<p className="mb-2 ml-2 text-xs text-text-extra-light">
+				<p className="mb-2 ml-2 text-text-extra-light text-xs">
 					<span className="font-bold">{value.length}</span> / {data.length}
 				</p>
 			</div>
 			<div
 				className={classNames(
-					"relative inline-flex h-full min-h-40 w-full flex-wrap rounded-lg border-[0.1rem] border-neutral-300 bg-neutral-700 p-5 text-sm"
+					"relative inline-flex h-full min-h-40 w-full flex-wrap rounded-lg border-[0.1rem] border-neutral-300 bg-neutral-700 p-5 text-sm",
 				)}
 			>
 				{data.map((item: string) => {
 					const isSelected = value.includes(item);
 
-					return (
-						<InputAreaItem item={item} key={item} isSelected={isSelected} onSelect={onSelect} />
-					);
+					return <InputAreaItem item={item} key={item} isSelected={isSelected} onSelect={onSelect} />;
 				})}
 			</div>
 		</div>

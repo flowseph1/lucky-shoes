@@ -1,17 +1,13 @@
-import React from "react";
+import Link from "next/link";
 
 const Logo = () => {
 	return (
-		<div className="relative mr-16 flex items-center">
-			<div className="logo-shadow animate-flicker font-madi text-[4rem] text-logo -rotate-12">
-				Lucky
-			</div>
-
-			<div className="absolute logo-shadow animate-flicker font-madi text-[4rem] text-logo-secondary -rotate-12 left-7 top-11">
+		<Link className="relative mr-16 flex items-center" href={"/"}>
+			<div className="logo-shadow -rotate-12 animate-flicker font-madi text-[4rem] text-logo">Lucky</div>
+			<div className="logo-shadow -rotate-12 absolute top-11 left-7 animate-flicker font-madi text-[4rem] text-logo-secondary">
 				Shoes
 			</div>
-			{/* <div className="logo-shadow2 font-candy text-sm text-logo-secondary"> HN</div> */}
-		</div>
+		</Link>
 	);
 };
 

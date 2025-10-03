@@ -1,0 +1,234 @@
+{
+	"id": "cdb7e6f8-8d7a-4ec0-a34e-dcdf460a7a94",
+	"prevId": "6a51d0ed-c697-4519-9be5-6b757e75b206",
+	"version": "7",
+	"dialect": "postgresql",
+	"tables": {
+		"public.brands": {
+			"name": "brands",
+			"schema": "",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "serial",
+					"primaryKey": true,
+					"notNull": true
+				},
+				"name": {
+					"name": "name",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"short_description": {
+					"name": "short_description",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"image": {
+					"name": "image",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				}
+			},
+			"indexes": {},
+			"foreignKeys": {},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"public.sneaker_images": {
+			"name": "sneaker_images",
+			"schema": "",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "serial",
+					"primaryKey": true,
+					"notNull": true
+				},
+				"sneaker_id": {
+					"name": "sneaker_id",
+					"type": "integer",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"url": {
+					"name": "url",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"alt": {
+					"name": "alt",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"order": {
+					"name": "order",
+					"type": "integer",
+					"primaryKey": false,
+					"notNull": false,
+					"default": 0
+				}
+			},
+			"indexes": {},
+			"foreignKeys": {
+				"sneaker_images_sneaker_id_sneakers_id_fk": {
+					"name": "sneaker_images_sneaker_id_sneakers_id_fk",
+					"tableFrom": "sneaker_images",
+					"tableTo": "sneakers",
+					"columnsFrom": ["sneaker_id"],
+					"columnsTo": ["id"],
+					"onDelete": "no action",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"public.sneakers": {
+			"name": "sneakers",
+			"schema": "",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "serial",
+					"primaryKey": true,
+					"notNull": true
+				},
+				"brand_id": {
+					"name": "brand_id",
+					"type": "integer",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"name": {
+					"name": "name",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"slug": {
+					"name": "slug",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"color": {
+					"name": "color",
+					"type": "varchar(256)",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"price": {
+					"name": "price",
+					"type": "integer",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"image": {
+					"name": "image",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"short_description": {
+					"name": "short_description",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"long_description": {
+					"name": "long_description",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"availability": {
+					"name": "availability",
+					"type": "sneaker_availability",
+					"typeSchema": "public",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "'Por encargo'"
+				},
+				"is_new": {
+					"name": "is_new",
+					"type": "boolean",
+					"primaryKey": false,
+					"notNull": true,
+					"default": false
+				},
+				"status": {
+					"name": "status",
+					"type": "sneaker_status",
+					"typeSchema": "public",
+					"primaryKey": false,
+					"notNull": false,
+					"default": "'active'"
+				},
+				"created_at": {
+					"name": "created_at",
+					"type": "timestamp",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				},
+				"updated_at": {
+					"name": "updated_at",
+					"type": "timestamp",
+					"primaryKey": false,
+					"notNull": true
+				}
+			},
+			"indexes": {},
+			"foreignKeys": {
+				"sneakers_brand_id_brands_id_fk": {
+					"name": "sneakers_brand_id_brands_id_fk",
+					"tableFrom": "sneakers",
+					"tableTo": "brands",
+					"columnsFrom": ["brand_id"],
+					"columnsTo": ["id"],
+					"onDelete": "no action",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		}
+	},
+	"enums": {
+		"public.sneaker_availability": {
+			"name": "sneaker_availability",
+			"schema": "public",
+			"values": ["Por encargo", "En stock", "No disponible"]
+		},
+		"public.sneaker_status": {
+			"name": "sneaker_status",
+			"schema": "public",
+			"values": ["active", "inactive"]
+		}
+	},
+	"schemas": {},
+	"sequences": {},
+	"roles": {},
+	"policies": {},
+	"views": {},
+	"_meta": {
+		"columns": {},
+		"schemas": {},
+		"tables": {}
+	}
+}

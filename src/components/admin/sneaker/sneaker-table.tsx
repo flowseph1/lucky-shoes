@@ -1,11 +1,11 @@
 "use client";
 
-import type { Sneaker } from "@/app/admin/sneakers/page";
-import { Table } from "@/components/table";
-import { PillStatus } from "@/components/ui/pill-status";
 import { type ColumnDef, createColumnHelper } from "@tanstack/react-table";
 import Image from "next/image";
 import { IoTrash } from "react-icons/io5";
+import type { Sneaker } from "@/app/admin/sneakers/page";
+import { Table } from "@/components/table";
+import { PillStatus } from "@/components/ui/pill-status";
 
 const columnHelper = createColumnHelper<Sneaker>();
 const columns: ColumnDef<Sneaker, any>[] = [
@@ -34,7 +34,7 @@ const columns: ColumnDef<Sneaker, any>[] = [
 		header: "Acciones",
 		cell: () => (
 			<div className="flex">
-				<div className="flex cursor-pointer items-center justify-center w-12 h-12 hover:bg-neutral-300 rounded-full">
+				<div className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full hover:bg-neutral-300">
 					<IoTrash size={15} />
 				</div>
 			</div>

@@ -1,4 +1,4 @@
-import { type VariantProps, cva } from "class-variance-authority";
+import { cva, type VariantProps } from "class-variance-authority";
 
 const pillStatusVariant = cva("px-4 py-2 rounded-full", {
 	variants: {

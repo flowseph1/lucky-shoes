@@ -1,11 +1,39 @@
-import React from "react";
+import Link from "next/link";
+import { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
-interface Props {
-	item: { title: string };
+export interface NavItemProps {
+	title: string;
+	icon?: ReactNode;
+	href?: string;
+	active?: boolean;
 }
 
-const NavbarItem = ({ item }: Props) => {
-	return <li className="cursor-pointer hover:text-text-base">{item.title}</li>;
+const NavbarItem = ({ title, icon, href, active }: NavItemProps) => {
+	if (href) {
+		return (
+			<Link href={href}>
+				<li
+					className={cn("flex cursor-pointer flex-row items-center gap-2 hover:text-text-base", {
+						"text-text-base": active,
+					})}
+				>
+					{icon && icon}
+					{title}
+				</li>
+			</Link>
+		);
+	}
+	return (
+		<li
+			className={cn("flex cursor-pointer flex-row items-center gap-2 hover:text-text-base", {
+				"text-text-base": active,
+			})}
+		>
+			{icon && icon}
+			{title}
+		</li>
+	);
 };
 
 export default NavbarItem;

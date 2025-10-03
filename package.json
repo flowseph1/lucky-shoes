@@ -6,9 +6,14 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"seed": "tsx supabase/seed/index.ts"
+		"format": "biome check .",
+		"format:fix": "biome check . --write",
+		"seed": "tsx supabase/seed/index.ts",
+		"migrate": "drizzle-kit migrate",
+		"generate": "drizzle-kit generate"
 	},
 	"dependencies": {
+		"@hookform/resolvers": "^5.2.2",
 		"@reduxjs/toolkit": "^2.9.0",
 		"@supabase/ssr": "^0.7.0",
 		"@tanstack/react-table": "^8.21.3",
@@ -32,7 +37,8 @@
 		"react-redux": "^9.2.0",
 		"tailwind-merge": "^3.3.1",
 		"tailwindcss": "^4.1.13",
-		"typescript": "^5.9.3"
+		"typescript": "^5.9.3",
+		"zod": "^4.1.11"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.2.4",

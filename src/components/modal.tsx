@@ -1,11 +1,11 @@
 "use client";
 
-import { Button } from "@/components/ui";
-import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { IoClose } from "react-icons/io5";
+import { Button } from "@/components/ui";
+import { cn } from "@/lib/utils";
 
 interface ModalProps {
 	name: string;
@@ -41,7 +41,7 @@ export function Modal({ title, children, name, buttonTitle, buttonAction }: Moda
 		<motion.dialog
 			ref={dialogRef}
 			onClick={handleClose}
-			className="bg-neutral-600 rounded-xl shadow-xl text-white/90 border border-neutral-50"
+			className="rounded-xl border border-neutral-50 bg-neutral-600 text-white/90 shadow-xl"
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
@@ -49,31 +49,25 @@ export function Modal({ title, children, name, buttonTitle, buttonAction }: Moda
 			<div onClick={(e) => e.stopPropagation()} className="">
 				{/* Header */}
 				{title && (
-					<div className="flex justify-between py-5 px-6 border-b border-b-neutral-300">
-						<p className="text-lg font-semibold">{title}</p>
-						<button
-							type="button"
-							onClick={handleClose}
-							className="flex justify-center items-center w-10 h-10"
-						>
+					<div className="flex justify-between border-b border-b-neutral-300 px-6 py-5">
+						<p className="font-semibold text-lg">{title}</p>
+						<button type="button" onClick={handleClose} className="flex h-10 w-10 items-center justify-center">
 							<IoClose />
 						</button>
 					</div>
 				)}
 
 				{/* Body */}
-				<div className="min-w-[300px] py-7 px-6 bg-neutral-900">{children}</div>
+				<div className="min-w-[300px] bg-neutral-900 px-6 py-7">{children}</div>
 
 				{/* Footer */}
 				<div
-					className={cn("flex justify-between py-5 px-6 border-t border-t-neutral-300", {
+					className={cn("flex justify-between border-t border-t-neutral-300 px-6 py-5", {
 						"justify-end!": !buttonTitle,
 					})}
 				>
 					<Button intent="tertiary" title="Cancelar" onClick={handleClose} />
-					{buttonTitle && buttonAction && (
-						<Button intent="primary" title={buttonTitle} onClick={buttonAction} />
-					)}
+					{buttonTitle && buttonAction && <Button intent="primary" title={buttonTitle} onClick={buttonAction} />}
 				</div>
 			</div>
 		</motion.dialog>

@@ -73,31 +73,20 @@
 	--color-secondary-light: rgba(255, 13, 102, 0.1);
 	--color-tertiary-light: rgba(0, 188, 212, 0.1);
 
+	/* Height */
+	--height-image-carousel: 600px;
+
 	/* Background Images */
-	--background-image-hero: radial-gradient(
-			50% 38.81% at 50% 61.19%,
-			rgba(142, 75, 250, 0.05) 0,
-			rgba(5, 5, 11, 0) 100%
-		),
-		radial-gradient(
-			50% 36.46% at 50% 36.46%,
-			rgba(142, 75, 250, 0.08) 0,
-			rgba(5, 5, 11, 0) 100%
-		);
+	--background-image-hero:
+		radial-gradient(50% 38.81% at 50% 61.19%, rgba(142, 75, 250, 0.05) 0, rgba(5, 5, 11, 0) 100%),
+		radial-gradient(50% 36.46% at 50% 36.46%, rgba(142, 75, 250, 0.08) 0, rgba(5, 5, 11, 0) 100%);
 	--background-image-border-gradient: linear-gradient(
 		45deg,
 		transparent 0%,
 		rgba(255, 255, 255, 0.1) 50%,
 		transparent 100%
 	);
-	--background-image-filter-gradient: linear-gradient(
-		45deg,
-		#4700d8,
-		#a500bb,
-		#d4009c,
-		#f0007e,
-		#ff0d66
-	);
+	--background-image-filter-gradient: linear-gradient(45deg, #4700d8, #a500bb, #d4009c, #f0007e, #ff0d66);
 
 	/* Box Shadows */
 	--shadow-container-shadow: rgb(50 63 100 / 50%) 0px 1px 20px;
@@ -115,7 +104,14 @@
 		57%,
 		100% {
 			text-shadow:
-				0 0 4px #4700d8, 0 0 11px #4700d8, 0 0 19px #4700d8, 0 0 40px #4700d8, 0 0 80px #4700d8, 0 0 90px #4700d8, 0 0 100px #4700d8, 0 0 150px #4700d8;
+				0 0 4px #4700d8,
+				0 0 11px #4700d8,
+				0 0 19px #4700d8,
+				0 0 40px #4700d8,
+				0 0 80px #4700d8,
+				0 0 90px #4700d8,
+				0 0 100px #4700d8,
+				0 0 150px #4700d8;
 		}
 		20%,
 		55% {
@@ -159,16 +155,38 @@
 }
 
 @layer utilities {
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+	.no-scrollbar {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+}
+
+@layer utilities {
 	.logo-shadow {
 		text-shadow:
-			0 0 4px #4700d8, 0 0 11px #4700d8, 0 0 19px #4700d8, 0 0 40px #4700d8, 0 0 80px #4700d8,
-			0 0 90px #4700d8, 0 0 100px #4700d8, 0 0 150px #4700d8;
+			0 0 4px #4700d8,
+			0 0 11px #4700d8,
+			0 0 19px #4700d8,
+			0 0 40px #4700d8,
+			0 0 80px #4700d8,
+			0 0 90px #4700d8,
+			0 0 100px #4700d8,
+			0 0 150px #4700d8;
 	}
 
 	.logo-shadow2 {
 		text-shadow:
-			0 0 4px #4d77ff, 0 0 11px #4d77ff, 0 0 19px #4d77ff, 0 0 40px #4d77ff, 0 0 80px #4d77ff,
-			0 0 90px #4d77ff, 0 0 100px #4d77ff, 0 0 150px #4d77ff;
+			0 0 4px #4d77ff,
+			0 0 11px #4d77ff,
+			0 0 19px #4d77ff,
+			0 0 40px #4d77ff,
+			0 0 80px #4d77ff,
+			0 0 90px #4d77ff,
+			0 0 100px #4d77ff,
+			0 0 150px #4d77ff;
 	}
 
 	.box-blur {

@@ -1,10 +1,10 @@
 "use client";
 
+import { IoMdAdd } from "react-icons/io";
 import { Button } from "@/components";
 import { FragmentContainer } from "@/components/admin/fragment-container";
 import { AdminHeading } from "@/components/admin/heading";
 import { SneakerTable } from "@/components/admin/sneaker/sneaker-table";
-import { IoMdAdd } from "react-icons/io";
 
 type Gender = "men" | "female" | "unisex" | "youth";
 
@@ -355,19 +355,10 @@ const DATA_TABLE: Sneaker[] = [
 export default function ProductsPage() {
 	return (
 		<FragmentContainer>
-			<AdminHeading
-				title="Productos"
-				subtitle="Gestiona los productos de tu tienda"
-			/>
+			<AdminHeading title="Productos" subtitle="Gestiona los productos de tu tienda" />
 
 			<div className="flex flex-col gap-6">
-				<Button
-					title="Agregar Producto"
-					intent="primary"
-					className="w-fit"
-					leftIcon={<IoMdAdd />}
-					onClick={() => {}}
-				/>
+				<Button title="Agregar Producto" intent="primary" className="w-fit" leftIcon={<IoMdAdd />} onClick={() => {}} />
 				<SneakerTable data={DATA_TABLE} />
 			</div>
 		</FragmentContainer>

@@ -1,7 +1,7 @@
 "use client";
 
 import classNames from "classnames";
-import { memo, useCallback, useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { useController } from "react-hook-form";
 import type { Control, FieldValues } from "react-hook-form/dist/types";
 import InputLabel from "../InputLabel";
@@ -54,21 +54,17 @@ const InputAdd = ({
 		}, 4000);
 
 		return () => clearTimeout(unsubscribe);
-	}, [notification]);
+	}, []);
 
 	return (
 		<div className={classNames(className, fullWidth && "w-full")}>
-			<div className="flex items-center ">{label && <InputLabel label={label} />}</div>
+			<div className="flex items-center">{label && <InputLabel label={label} />}</div>
 			<div
 				className={classNames(
-					"min-h-40 w-full flex-wrap rounded-lg border-[0.1rem] border-neutral-300 bg-neutral-700 p-5 text-sm"
+					"min-h-40 w-full flex-wrap rounded-lg border-[0.1rem] border-neutral-300 bg-neutral-700 p-5 text-sm",
 				)}
 			>
-				<InputAddInputBox
-					placeholder={placeholder}
-					handleAddTag={handleAddTag}
-					notification={notification}
-				/>
+				<InputAddInputBox placeholder={placeholder} handleAddTag={handleAddTag} notification={notification} />
 				<InputAddItems handleDelete={handleDelete} value={value} />
 			</div>
 		</div>

@@ -1,6 +1,12 @@
 {
+	"files": {
+		"includes": ["src/**/*.tsx", "src/**/*.ts"]
+	},
 	"formatter": {
-		"enabled": true
+		"enabled": true,
+		"lineWidth": 120,
+		"indentStyle": "tab",
+		"indentWidth": 2
 	},
 	"json": {
 		"formatter": {
@@ -20,10 +26,16 @@
 			},
 			"correctness": {
 				"noChildrenProp": "error",
-				"useExhaustiveDependencies": "warn",
 				"useHookAtTopLevel": "error",
 				"useJsxKeyInIterable": "error",
 				"noUnusedImports": {
+					"fix": "safe",
+					"level": "error"
+				},
+				"useExhaustiveDependencies": "error"
+			},
+			"nursery": {
+				"useSortedClasses": {
 					"fix": "safe",
 					"level": "error"
 				}

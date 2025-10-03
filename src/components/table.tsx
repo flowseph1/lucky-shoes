@@ -6,13 +6,7 @@ import {
 	useReactTable,
 } from "@tanstack/react-table";
 
-export function Table({
-	columns,
-	data,
-}: {
-	columns: ColumnDef<any, any>[];
-	data: unknown[];
-}) {
+export function Table({ columns, data }: { columns: ColumnDef<any, any>[]; data: unknown[] }) {
 	const table = useReactTable({
 		columns: columns as ColumnDef<unknown>[],
 		data,
@@ -21,7 +15,7 @@ export function Table({
 	});
 
 	return (
-		<div className="border border-neutral-300 rounded-xl overflow-hidden">
+		<div className="overflow-hidden rounded-xl border border-neutral-300">
 			<table className="w-full">
 				<thead>
 					{table.getHeaderGroups().map((headerGroup) => (
@@ -48,7 +42,7 @@ export function Table({
 				</tbody>
 
 				<tfoot className="w-full">
-					<tr className="border-t border-t-neutral-300 bg-neutral-400 w-full">
+					<tr className="w-full border-t border-t-neutral-300 bg-neutral-400">
 						{/*  <select
               value={table.getState().pagination.pageSize}
               onChange={(e) => {
@@ -64,7 +58,7 @@ export function Table({
 					</tr>
 				</tfoot>
 			</table>
-			<div className="p-5 bg-neutral-900 flex justify-between">
+			<div className="flex justify-between bg-neutral-900 p-5">
 				<div className="flex gap-2">
 					<p className="text-sm">Filas por pagina</p>
 					<select
