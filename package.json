@@ -5,12 +5,14 @@
 		"dev": "next dev --turbopack",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint",
+		"lint": "biome check .",
+		"lint:fix": "biome check . --write",
 		"format": "biome check .",
 		"format:fix": "biome check . --write",
 		"seed": "tsx supabase/seed/index.ts",
 		"migrate": "drizzle-kit migrate",
-		"generate": "drizzle-kit generate"
+		"generate": "drizzle-kit generate",
+		"type-check": "tsc --noEmit"
 	},
 	"dependencies": {
 		"@hookform/resolvers": "^5.2.2",
