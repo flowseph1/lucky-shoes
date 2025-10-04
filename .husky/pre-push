@@ -1,0 +1,14 @@
+# Pre-push hook for type checking and linting
+
+# Force output to be visible
+exec 1>&2
+
+# Colors for output
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+echo "${YELLOW}🔍 Running pre-push checks...${NC}"
+
+pnpm type-check
+
+pnpm lint
