@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import type React from "react";
 import { memo } from "react";
-import { type UseFormRegisterReturn } from "react-hook-form/dist/types";
+import type { UseFormRegisterReturn } from "react-hook-form";
 import InputLabel from "./InputLabel";
 
 interface IInput {

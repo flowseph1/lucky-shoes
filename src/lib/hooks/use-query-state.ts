@@ -1,4 +1,4 @@
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useLocation, useNavigate } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 type UseQueryStateOptions = {
@@ -9,9 +9,9 @@ type UseQueryStateOptions = {
 export function useQueryState(key: string, options?: UseQueryStateOptions) {
 	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 	const [state, setState] = useState(options?.defaultValue || "");
-	const pathname = usePathname();
-	const searchParams = useSearchParams();
-	const router = useRouter();
+	const location = useLocation();
+	const navigate = useNavigate();
+	const searchParams = new URLSearchParams(location.searchStr);
 
 	const generateSearchParams = useCallback(
 		(params: Record<string, string>) => {
@@ -32,11 +32,14 @@ export function useQueryState(key: string, options?: UseQueryStateOptions) {
 		(params: Record<string, string>) => {
 			const newSearchParams = generateSearchParams(params);
 			if (newSearchParams === searchParams.toString()) return;
-			return router.replace(`${pathname}?${newSearchParams}`, {
-				scroll: false,
+			return navigate({
+				to: location.pathname,
+				search: Object.fromEntries(new URLSearchParams(newSearchParams)),
+				replace: true,
+				resetScroll: false,
 			});
 		},
-		[generateSearchParams, pathname, router, searchParams],
+		[generateSearchParams, location.pathname, navigate, searchParams],
 	);
 
 	useEffect(() => {

@@ -1,6 +1,6 @@
 {
 	"files": {
-		"includes": ["src/**/*.tsx", "src/**/*.ts"]
+		"includes": ["src/**/*.tsx", "src/**/*.ts", "!src/routeTree.gen.ts"]
 	},
 	"formatter": {
 		"enabled": true,

@@ -1,6 +1,6 @@
 # Lucky Shoes 👟
 
-A modern e-commerce platform for exclusive sneakers, built with Next.js 15 and Supabase. Originally an Instagram page, now transformed into a full-featured online store offering the latest trends in sneaker culture.
+A modern e-commerce platform for exclusive sneakers, built with TanStack Start, Nitro, and Supabase. Originally an Instagram page, now transformed into a full-featured online store offering the latest trends in sneaker culture.
 
 ## ✨ Features
 
@@ -21,7 +21,8 @@ A modern e-commerce platform for exclusive sneakers, built with Next.js 15 and S
 
 ## 🛠️ Tech Stack
 
-- **Framework**: Next.js 15 with App Router
+- **Framework**: TanStack Start with TanStack Router and Vite
+- **Server runtime**: Nitro (Node.js)
 - **Database**: Supabase (PostgreSQL)
 - **ORM**: Drizzle ORM
 - **Styling**: Tailwind CSS 4
@@ -32,3 +33,23 @@ A modern e-commerce platform for exclusive sneakers, built with Next.js 15 and S
 - **Animations**: Framer Motion
 - **Code Quality**: Biome (linting & formatting)
 
+## Development
+
+This project uses [Bun](https://bun.sh/) for package management and scripts.
+
+```bash
+bun install
+bun run dev
+```
+
+## Environment and admin setup
+
+Set `DATABASE_URL`, `SUPABASE_URL`, and `SUPABASE_ANON_KEY` for local and production builds. Run the Supabase migrations, then create a Supabase email/password user and promote it with:
+
+```sql
+insert into public.profiles (id, role)
+select id, 'admin' from auth.users where email = 'admin@example.com'
+on conflict (id) do update set role = 'admin';
+```
+
+The admin area is available at `/admin/login`. Catalog records marked `inactive` remain visible to administrators but are excluded from public catalog and product routes.

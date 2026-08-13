@@ -1,8 +1,7 @@
 "use client";
 
+import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
 import { CiShop } from "react-icons/ci";
 import { Button } from "@/components/ui";
 import { SneakerWithBrand } from "@/lib/api/sneakers";
@@ -15,18 +14,17 @@ export function SneakerItem({ sneaker }: Props) {
 	return (
 		<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex flex-1">
 			<Link
-				href={`/sneaker/${sneaker.slug}`}
+				to="/sneaker/$slug"
+				params={{ slug: sneaker.slug }}
 				className="group group relative flex min-h-108 w-full flex-1 flex-col overflow-hidden rounded-2xl border-[0.1rem] border-border-color"
 			>
 				{/* Top Section */}
 				<div className="relative flex-1 bg-container-extra-light group-hover:bg-neutral-900">
 					<div className="relative h-[160px] w-full overflow-hidden">
 						{sneaker.image && (
-							<Image
+							<img
 								src={sneaker.image}
 								alt="Foto principal"
-								fill
-								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 								className="object-cover transition-transform group-hover:scale-105"
 							/>
 						)}

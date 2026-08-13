@@ -9,6 +9,6 @@ NC='\033[0m' # No Color
 
 echo "${YELLOW}🔍 Running pre-push checks...${NC}"
 
-pnpm type-check
+bun run type-check
 
-pnpm lint
+bun run lint
