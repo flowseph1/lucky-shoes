@@ -29,14 +29,14 @@ function Dashboard() {
 		.slice(0, 5);
 
 	return (
-		<section className="flex flex-col gap-12">
+		<section className="flex flex-col gap-8 sm:gap-12">
 			<PageHeader
 				title="Dashboard"
 				description="Resumen del catálogo de Lucky Shoes."
 				actions={
 					<Link
 						to="/admin/sneakers"
-						className="inline-flex h-16 cursor-pointer items-center rounded-lg border-[0.1rem] border-white/[0.08] bg-white/[0.03] px-8 font-medium text-sm text-text-base transition-colors hover:border-white/[0.16] hover:bg-white/[0.06]"
+						className="inline-flex h-14 w-full cursor-pointer items-center justify-center rounded-lg border-[0.1rem] border-white/[0.08] bg-white/[0.03] px-6 font-medium text-sm text-text-base transition-colors hover:border-white/[0.16] hover:bg-white/[0.06] sm:h-16 sm:w-auto sm:px-8"
 					>
 						Gestionar sneakers
 					</Link>
@@ -73,7 +73,7 @@ function Dashboard() {
 					<PanelHeader title="Últimos agregados" description="Los 5 sneakers más recientes" />
 					<ul className="divide-y divide-white/[0.04]">
 						{recent.map((sneaker) => (
-							<li key={sneaker.id} className="flex items-center gap-6 px-10 py-6">
+							<li key={sneaker.id} className="flex items-center gap-4 px-5 py-5 sm:gap-6 sm:px-10 sm:py-6">
 								<img
 									src={sneaker.image}
 									alt={sneaker.name}
@@ -87,14 +87,14 @@ function Dashboard() {
 							</li>
 						))}
 						{!recent.length && (
-							<li className="px-10 py-16 text-center text-sm text-text-light">Aún no hay sneakers.</li>
+							<li className="px-5 py-16 text-center text-sm text-text-light sm:px-10">Aún no hay sneakers.</li>
 						)}
 					</ul>
 				</Panel>
 
 				<Panel className="lg:col-span-2">
 					<PanelHeader title="Por marca" description="Distribución del catálogo" />
-					<ul className="flex flex-col gap-6 px-10 py-8">
+					<ul className="flex flex-col gap-6 px-5 py-6 sm:px-10 sm:py-8">
 						{byBrand.map((brand) => (
 							<li key={brand.id}>
 								<div className="mb-2 flex items-center justify-between gap-4">

@@ -5,7 +5,10 @@ export function RowActions({ onEdit, onDelete }: { onEdit: () => void; onDelete:
 		<div className="flex justify-end gap-2">
 			<button
 				type="button"
-				onClick={onEdit}
+				onClick={(event) => {
+					event.stopPropagation();
+					onEdit();
+				}}
 				title="Editar"
 				aria-label="Editar"
 				className="flex size-11 cursor-pointer items-center justify-center rounded-lg border border-white/[0.06] bg-white/[0.02] text-text-light transition-colors hover:border-white/[0.14] hover:bg-white/[0.06] hover:text-text-base"
@@ -14,7 +17,10 @@ export function RowActions({ onEdit, onDelete }: { onEdit: () => void; onDelete:
 			</button>
 			<button
 				type="button"
-				onClick={onDelete}
+				onClick={(event) => {
+					event.stopPropagation();
+					onDelete();
+				}}
 				title="Eliminar"
 				aria-label="Eliminar"
 				className="flex size-11 cursor-pointer items-center justify-center rounded-lg border border-white/[0.06] bg-white/[0.02] text-text-light transition-colors hover:border-secondary/30 hover:bg-secondary-light hover:text-secondary"

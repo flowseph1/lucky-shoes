@@ -47,7 +47,7 @@ export function Sheet({
 						transition={{ type: "spring", stiffness: 320, damping: 34 }}
 						className="relative flex h-full w-full max-w-[52rem] flex-col border-white/[0.06] border-l bg-neutral-600"
 					>
-						<header className="flex items-start justify-between gap-6 border-white/[0.06] border-b px-12 py-9">
+						<header className="flex items-start justify-between gap-4 border-white/[0.06] border-b px-5 py-6 sm:gap-6 sm:px-12 sm:py-9">
 							<div>
 								<h2 className="font-semibold text-md text-text-base">{title}</h2>
 								{description && <p className="mt-1 text-text-extra-light text-xs">{description}</p>}

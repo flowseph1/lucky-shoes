@@ -1,7 +1,8 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
-import { LuExternalLink, LuPlus, LuSearch, LuTags } from "react-icons/lu";
+import { LuChevronLeft, LuChevronRight, LuExternalLink, LuPlus, LuSearch, LuTags } from "react-icons/lu";
+import { ConfirmDialog } from "@/components/admin/confirm-dialog";
 import { DataTable, EmptyState, Td, Th, Tr } from "@/components/admin/data-table";
 import { FormError } from "@/components/admin/form-error";
 import { ImagePicker } from "@/components/admin/image-picker";
@@ -16,6 +17,8 @@ import { deleteBrand, getAdminBrands, saveBrand } from "@/lib/server/admin";
 
 export const Route = createFileRoute("/admin/brands")({ loader: () => getAdminBrands(), component: BrandsPage });
 
+const BRANDS_PER_PAGE = 20;
+
 function BrandsPage() {
 	const brands = Route.useLoaderData();
 	const router = useRouter();
@@ -26,10 +29,33 @@ function BrandsPage() {
 	const [error, setError] = useState("");
 	const [saving, setSaving] = useState(false);
 	const [query, setQuery] = useState("");
+	const [page, setPage] = useState(1);
 	const [imagePath, setImagePath] = useState<string | null>(null);
+	const [deleting, setDeleting] = useState<(typeof brands)[number] | null>(null);
+	const [removing, setRemoving] = useState(false);
 
 	const term = query.trim().toLowerCase();
 	const visible = term ? brands.filter((brand) => brand.name.toLowerCase().includes(term)) : brands;
+	const pageCount = Math.max(1, Math.ceil(visible.length / BRANDS_PER_PAGE));
+	const currentPage = Math.min(page, pageCount);
+	const firstItem = visible.length ? (currentPage - 1) * BRANDS_PER_PAGE + 1 : 0;
+	const lastItem = Math.min(currentPage * BRANDS_PER_PAGE, visible.length);
+	const paginatedBrands = visible.slice((currentPage - 1) * BRANDS_PER_PAGE, currentPage * BRANDS_PER_PAGE);
+
+	const confirmDelete = async () => {
+		if (!deleting) return;
+		setRemoving(true);
+		try {
+			await remove({ data: { id: deleting.id } });
+			await router.invalidate();
+			setDeleting(null);
+		} catch (cause) {
+			setError(cause instanceof Error ? cause.message : "No se pudo eliminar");
+			setDeleting(null);
+		} finally {
+			setRemoving(false);
+		}
+	};
 
 	const openSheet = (brand: (typeof brands)[number] | null) => {
 		setError("");
@@ -70,7 +96,7 @@ function BrandsPage() {
 	};
 
 	return (
-		<section className="flex flex-col gap-12">
+		<section className="flex flex-col gap-8 sm:gap-12">
 			<PageHeader
 				title="Marcas"
 				description={`${brands.length} ${brands.length === 1 ? "marca registrada" : "marcas registradas"}.`}
@@ -80,13 +106,16 @@ function BrandsPage() {
 			{error && !open && <FormError message={error} />}
 
 			<Panel>
-				<div className="flex flex-wrap items-center justify-between gap-6 border-white/[0.06] border-b px-10 py-6">
+				<div className="flex flex-col items-stretch justify-between gap-4 border-white/[0.06] border-b px-5 py-5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6 sm:px-10 sm:py-6">
 					<Input
 						iconLeft={<LuSearch size={15} className="text-text-extra-light" />}
 						placeholder="Buscar marca"
 						value={query}
-						onChange={(event) => setQuery(event.target.value)}
-						className="w-full max-w-[36rem]"
+						onChange={(event) => {
+							setQuery(event.target.value);
+							setPage(1);
+						}}
+						className="w-full sm:max-w-[36rem]"
 					/>
 					<p className="text-text-extra-light text-xs">
 						{visible.length} de {brands.length}
@@ -94,66 +123,132 @@ function BrandsPage() {
 				</div>
 
 				{visible.length ? (
-					<DataTable>
-						<thead>
-							<tr>
-								<Th>Marca</Th>
-								<Th>Descripción</Th>
-								<Th>Sitio web</Th>
-								<Th align="right">Acciones</Th>
-							</tr>
-						</thead>
-						<tbody>
-							{visible.map((brand) => (
-								<Tr key={brand.id}>
-									<Td>
-										<div className="flex items-center gap-5">
-											<img
-												src={brand.image}
-												alt={brand.name}
-												className="size-14 shrink-0 rounded-full border border-white/[0.06] bg-neutral-500 object-cover"
-											/>
-											<span className="flex items-center gap-3 text-text-base">
-												{brand.name}
+					<>
+						<div className="hidden md:block">
+							<DataTable>
+								<thead>
+									<tr>
+										<Th>Marca</Th>
+										<Th>Descripción</Th>
+										<Th>Sitio web</Th>
+										<Th align="right">Acciones</Th>
+									</tr>
+								</thead>
+								<tbody>
+									{paginatedBrands.map((brand) => (
+										<Tr key={brand.id} onClick={() => openSheet(brand)}>
+											<Td>
+												<div className="flex items-center gap-5">
+													<img
+														src={brand.image}
+														alt={brand.name}
+														className="size-14 shrink-0 rounded-full border border-white/[0.06] bg-neutral-500 object-cover"
+													/>
+													<span className="flex items-center gap-3 text-text-base">
+														{brand.name}
+														{brand.verified && <Badge tone="accent">Verificada</Badge>}
+													</span>
+												</div>
+											</Td>
+											<Td className="max-w-[32rem] text-text-light">
+												<span className="line-clamp-1">{brand.shortDescription || "—"}</span>
+											</Td>
+											<Td>
+												{brand.url ? (
+													<a
+														href={brand.url}
+														target="_blank"
+														rel="noreferrer"
+														onClick={(event) => event.stopPropagation()}
+														className="inline-flex items-center gap-2 text-primary-900 text-xs transition-opacity hover:opacity-80"
+													>
+														Visitar
+														<LuExternalLink size={12} />
+													</a>
+												) : (
+													<span className="text-text-extra-light">—</span>
+												)}
+											</Td>
+											<Td align="right">
+												<RowActions onEdit={() => openSheet(brand)} onDelete={() => setDeleting(brand)} />
+											</Td>
+										</Tr>
+									))}
+								</tbody>
+							</DataTable>
+						</div>
+						<div className="divide-y divide-white/[0.06] md:hidden">
+							{paginatedBrands.map((brand) => (
+								<article key={brand.id} className="flex flex-col gap-4 px-5 py-5">
+									<div className="flex min-w-0 items-center gap-4">
+										<img
+											src={brand.image}
+											alt={brand.name}
+											className="size-14 shrink-0 rounded-full border border-white/[0.06] bg-neutral-500 object-cover"
+										/>
+										<div className="min-w-0 flex-1">
+											<div className="flex items-center gap-2">
+												<p className="truncate font-medium text-sm text-text-base">{brand.name}</p>
 												{brand.verified && <Badge tone="accent">Verificada</Badge>}
-											</span>
+											</div>
+											<p className="mt-1 line-clamp-2 text-text-light text-xs">
+												{brand.shortDescription || "Sin descripción"}
+											</p>
 										</div>
-									</Td>
-									<Td className="max-w-[32rem] text-text-light">
-										<span className="line-clamp-1">{brand.shortDescription || "—"}</span>
-									</Td>
-									<Td>
+									</div>
+									<div className="flex items-center justify-between gap-4">
 										{brand.url ? (
 											<a
 												href={brand.url}
 												target="_blank"
 												rel="noreferrer"
-												className="inline-flex items-center gap-2 text-primary-900 text-xs transition-opacity hover:opacity-80"
+												className="inline-flex min-h-11 items-center gap-2 text-primary-900 text-xs"
 											>
-												Visitar
-												<LuExternalLink size={12} />
+												Visitar sitio <LuExternalLink size={13} />
 											</a>
 										) : (
-											<span className="text-text-extra-light">—</span>
+											<span className="text-text-extra-light text-xs">Sin sitio web</span>
 										)}
-									</Td>
-									<Td align="right">
-										<RowActions
-											onEdit={() => openSheet(brand)}
-											onDelete={async () => {
-												try {
-													await remove({ data: { id: brand.id } });
-													await router.invalidate();
-												} catch (cause) {
-													setError(cause instanceof Error ? cause.message : "No se pudo eliminar");
-												}
-											}}
-										/>
-									</Td>
-								</Tr>
+										<RowActions onEdit={() => openSheet(brand)} onDelete={() => setDeleting(brand)} />
+									</div>
+								</article>
 							))}
-						</tbody>
-					</DataTable>
+						</div>
+						{visible.length > BRANDS_PER_PAGE && (
+							<div className="flex flex-col items-stretch justify-between gap-4 border-white/[0.06] border-t px-5 py-5 sm:flex-row sm:flex-wrap sm:items-center sm:px-10">
+								<p className="text-text-extra-light text-xs">
+									Mostrando {firstItem}–{lastItem} de {visible.length}
+								</p>
+								<nav
+									className="flex items-center justify-between gap-2 sm:justify-start"
+									aria-label="Paginación de marcas"
+								>
+									<Button
+										title="Anterior"
+										intent="tertiary"
+										size="small"
+										style={{ height: "3.5rem" }}
+										leftIcon={<LuChevronLeft size={15} />}
+										onClick={() => setPage((current) => Math.max(1, current - 1))}
+										disabled={currentPage === 1}
+									/>
+									<span className="min-w-20 text-center text-text-light text-xs tabular-nums">
+										Página {currentPage} de {pageCount}
+									</span>
+									<Button
+										title="Siguiente"
+										intent="tertiary"
+										size="small"
+										style={{ height: "3.5rem" }}
+										className="flex-row-reverse"
+										leftIcon={<LuChevronRight size={15} />}
+										onClick={() => setPage((current) => Math.min(pageCount, current + 1))}
+										disabled={currentPage === pageCount}
+									/>
+								</nav>
+							</div>
+						)}
+					</>
 				) : (
 					<EmptyState
 						icon={<LuTags size={22} />}
@@ -175,7 +270,7 @@ function BrandsPage() {
 				description={editing ? editing.name : "Completa los datos de la marca"}
 			>
 				<form key={editing?.id ?? "new"} onSubmit={submit} className="flex min-h-full flex-col">
-					<div className="grid flex-1 grid-cols-1 gap-4 px-12 py-8">
+					<div className="grid flex-1 grid-cols-1 gap-4 px-5 py-6 sm:px-12 sm:py-8">
 						<Input name="name" label="Nombre" required placeholder="Nike" defaultValue={editing?.name} fullWidth />
 						<ImagePicker
 							name="image"
@@ -207,8 +302,8 @@ function BrandsPage() {
 						{error && <FormError message={error} />}
 					</div>
 
-					<div className="sticky bottom-0 flex items-center justify-end gap-4 border-white/[0.06] border-t bg-neutral-600 px-12 py-8">
-						<Button type="button" intent="ghost" title="Cancelar" onClick={closeSheet} />
+					<div className="sticky bottom-0 flex flex-col-reverse gap-2 border-white/[0.06] border-t bg-neutral-600 px-5 py-5 sm:flex-row sm:items-center sm:justify-end sm:gap-4 sm:px-12 sm:py-8 [&>button]:w-full sm:[&>button]:w-auto">
+						<Button type="button" intent="ghost" title="Cancelar" onClick={closeSheet} className="justify-center" />
 						<Button
 							type="submit"
 							disabled={saving}
@@ -217,6 +312,15 @@ function BrandsPage() {
 					</div>
 				</form>
 			</Sheet>
+
+			<ConfirmDialog
+				open={deleting !== null}
+				title={`Eliminar "${deleting?.name}"`}
+				description="Esta acción no se puede deshacer. La marca se eliminará de forma permanente."
+				loading={removing}
+				onConfirm={confirmDelete}
+				onCancel={() => setDeleting(null)}
+			/>
 		</section>
 	);
 }

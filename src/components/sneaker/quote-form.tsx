@@ -39,7 +39,7 @@ export function QuoteForm({ sneakerName }: { sneakerName: string }) {
 					<legend className="font-semibold text-text-light text-xs uppercase tracking-wider">Talla</legend>
 					<span className="text-text-base text-xs tabular-nums">{size || "Sin seleccionar"}</span>
 				</div>
-				<div className="grid grid-cols-4 gap-2.5 sm:grid-cols-5">
+				<div className="grid grid-cols-5 gap-2.5 sm:grid-cols-6">
 					{SIZES.map((availableSize) => {
 						const isSelected = size === availableSize;
 						return (

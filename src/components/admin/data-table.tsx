@@ -44,9 +44,24 @@ export function Td({
 	);
 }
 
-export function Tr({ children }: { children: React.ReactNode }) {
+export function Tr({ children, onClick }: { children: React.ReactNode; onClick?: () => void }) {
 	return (
-		<tr className="border-white/[0.04] border-b transition-colors last:border-b-0 hover:bg-white/[0.02]">{children}</tr>
+		<tr
+			className={cn(
+				"border-white/[0.04] border-b transition-colors last:border-b-0 hover:bg-white/[0.02]",
+				onClick && "cursor-pointer",
+			)}
+			onClick={onClick}
+			onKeyDown={(event) => {
+				if (event.currentTarget === event.target && onClick && (event.key === "Enter" || event.key === " ")) {
+					event.preventDefault();
+					onClick();
+				}
+			}}
+			tabIndex={onClick ? 0 : undefined}
+		>
+			{children}
+		</tr>
 	);
 }
 
@@ -62,7 +77,7 @@ export function EmptyState({
 	action?: React.ReactNode;
 }) {
 	return (
-		<div className="flex flex-col items-center justify-center gap-4 px-10 py-24 text-center">
+		<div className="flex flex-col items-center justify-center gap-4 px-5 py-16 text-center sm:px-10 sm:py-24">
 			<span className="flex size-16 items-center justify-center rounded-full bg-white/[0.04] text-text-extra-light">
 				{icon}
 			</span>

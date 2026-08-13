@@ -58,12 +58,17 @@ export const getAdminBrands = createServerFn({ method: "GET" }).handler(async ()
 export const getAdminSneakers = createServerFn({ method: "GET" }).handler(async () => {
 	await requireAdmin();
 	const { db } = await import("@/lib/db");
-	const { brands, sneakers } = await import("@/lib/db/schema");
-	return db
+	const { brands, sneakerImages, sneakers } = await import("@/lib/db/schema");
+	const sneakerRows = await db
 		.select({ ...getTableColumns(sneakers), brand: brands })
 		.from(sneakers)
 		.innerJoin(brands, eq(sneakers.brandId, brands.id))
 		.orderBy(asc(sneakers.name));
+	const images = await db.select().from(sneakerImages).orderBy(asc(sneakerImages.order), asc(sneakerImages.id));
+	return sneakerRows.map((sneaker) => ({
+		...sneaker,
+		images: images.filter((image) => image.sneakerId === sneaker.id),
+	}));
 });
 
 export const uploadImage = createServerFn({ method: "POST" })
@@ -122,10 +127,16 @@ export const saveSneaker = createServerFn({ method: "POST" })
 		await requireAdmin();
 		const { db } = await import("@/lib/db");
 		const { sneakerImages, sneakers } = await import("@/lib/db/schema");
-		const { images, id, ...values } = data;
+		const { images, id, image: fallbackImage, imagePath: fallbackImagePath, ...values } = data;
+		const primaryImage = images[0];
+		const sneakerValues = {
+			...values,
+			image: primaryImage?.url ?? fallbackImage,
+			imagePath: primaryImage?.path ?? fallbackImagePath,
+		};
 		const sneaker = id
-			? (await db.update(sneakers).set(values).where(eq(sneakers.id, id)).returning())[0]
-			: (await db.insert(sneakers).values(values).returning())[0];
+			? (await db.update(sneakers).set(sneakerValues).where(eq(sneakers.id, id)).returning())[0]
+			: (await db.insert(sneakers).values(sneakerValues).returning())[0];
 		await db.delete(sneakerImages).where(eq(sneakerImages.sneakerId, sneaker.id));
 		if (images.length)
 			await db.insert(sneakerImages).values(images.map((image) => ({ ...image, sneakerId: sneaker.id })));

@@ -63,7 +63,8 @@ export const getRelatedSneakers = createServerFn({ method: "GET" })
 	.handler(async ({ data }) => {
 		const { db } = await import("@/lib/db");
 		const { brands, sneakers } = await import("@/lib/db/schema");
-		return db
+		const recommendationCount = 8;
+		const sameBrandSneakers = await db
 			.select({ ...getTableColumns(sneakers), brand: brands })
 			.from(sneakers)
 			.innerJoin(brands, eq(sneakers.brandId, brands.id))
@@ -71,5 +72,18 @@ export const getRelatedSneakers = createServerFn({ method: "GET" })
 				and(eq(sneakers.status, "active"), eq(sneakers.brandId, data.brandId), ne(sneakers.slug, data.excludeSlug)),
 			)
 			.orderBy(asc(sneakers.createdAt))
-			.limit(6);
+			.limit(recommendationCount);
+
+		const remainingCount = recommendationCount - sameBrandSneakers.length;
+		if (remainingCount === 0) return sameBrandSneakers;
+
+		const additionalSneakers = await db
+			.select({ ...getTableColumns(sneakers), brand: brands })
+			.from(sneakers)
+			.innerJoin(brands, eq(sneakers.brandId, brands.id))
+			.where(and(eq(sneakers.status, "active"), ne(sneakers.brandId, data.brandId), ne(sneakers.slug, data.excludeSlug)))
+			.orderBy(asc(sneakers.createdAt))
+			.limit(remainingCount);
+
+		return [...sameBrandSneakers, ...additionalSneakers];
 	});

@@ -6,7 +6,7 @@ import { Container } from "@/components/container";
 export function Footer() {
 	return (
 		<footer className="border-neutral-300 border-t bg-neutral-900 py-20">
-			<Container className="flex items-center justify-between">
+			<Container className="flex flex-col items-center justify-between gap-10 text-center sm:flex-row sm:gap-0 sm:text-left">
 				<div>
 					<p className="text-xs">Made by</p>
 					<a href="https://github.com/flowseph1" target="_blank" rel="noreferrer" className="flex items-center gap-2">

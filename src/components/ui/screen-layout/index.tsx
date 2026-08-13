@@ -9,13 +9,13 @@ interface ScreenLayoutProps {
 }
 
 function Title({ children }: { children: React.ReactNode }) {
-	return <h2 className="font-bold text-5xl">{children}</h2>;
+	return <h2 className="font-bold text-3xl sm:text-5xl">{children}</h2>;
 }
 
 const ScreenLayout = ({ children, className, showBackButton }: ScreenLayoutProps) => {
 	return (
 		<Container>
-			<div className={cn("flex flex-col gap-16 py-36", className)}>
+			<div className={cn("flex flex-col gap-10 py-20 sm:gap-16 sm:py-36", className)}>
 				{showBackButton && <BackButton />}
 				{children}
 			</div>

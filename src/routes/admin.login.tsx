@@ -28,7 +28,7 @@ function LoginPage() {
 		}
 	};
 	return (
-		<main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background px-8 py-20">
+		<main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background px-4 py-10 sm:px-8 sm:py-20">
 			<div
 				aria-hidden
 				className="-translate-x-1/2 pointer-events-none absolute top-[-20rem] left-1/2 size-[70rem] rounded-full bg-primary-500/10 blur-[120px]"
@@ -37,7 +37,7 @@ function LoginPage() {
 				<AdminLogo />
 				<form
 					onSubmit={submit}
-					className="flex flex-col gap-6 rounded-2xl border border-white/[0.06] bg-neutral-600 p-12"
+					className="flex flex-col gap-6 rounded-2xl border border-white/[0.06] bg-neutral-600 p-5 sm:p-12"
 				>
 					<div className="mb-2">
 						<h1 className="font-bold text-lg text-text-base">Administración</h1>

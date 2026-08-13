@@ -8,12 +8,12 @@ export function PageHeader({
 	actions?: React.ReactNode;
 }) {
 	return (
-		<header className="flex flex-wrap items-end justify-between gap-6">
+		<header className="flex flex-col items-stretch justify-between gap-5 sm:flex-row sm:flex-wrap sm:items-end sm:gap-6">
 			<div>
 				<h1 className="font-bold text-text-base text-xl tracking-tight">{title}</h1>
 				{description && <p className="mt-2 text-md text-text-light">{description}</p>}
 			</div>
-			{actions && <div className="flex items-center gap-4">{actions}</div>}
+			{actions && <div className="flex items-center gap-4 [&>*]:w-full sm:[&>*]:w-auto">{actions}</div>}
 		</header>
 	);
 }
