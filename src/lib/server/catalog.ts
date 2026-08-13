@@ -81,7 +81,9 @@ export const getRelatedSneakers = createServerFn({ method: "GET" })
 			.select({ ...getTableColumns(sneakers), brand: brands })
 			.from(sneakers)
 			.innerJoin(brands, eq(sneakers.brandId, brands.id))
-			.where(and(eq(sneakers.status, "active"), ne(sneakers.brandId, data.brandId), ne(sneakers.slug, data.excludeSlug)))
+			.where(
+				and(eq(sneakers.status, "active"), ne(sneakers.brandId, data.brandId), ne(sneakers.slug, data.excludeSlug)),
+			)
 			.orderBy(asc(sneakers.createdAt))
 			.limit(remainingCount);
 
