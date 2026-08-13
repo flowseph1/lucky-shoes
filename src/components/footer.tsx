@@ -1,7 +1,7 @@
-import { Link } from "@tanstack/react-router";
 import { CiInstagram } from "react-icons/ci";
 import { IoLogoGithub } from "react-icons/io";
 import { Container } from "@/components/container";
+import { INSTAGRAM_URL } from "@/constants/social";
 
 export function Footer() {
 	return (
@@ -18,13 +18,15 @@ export function Footer() {
 					Copyright &copy; {new Date().getFullYear()} Lucky Shoes. All rights reserved.
 				</p>
 				<div>
-					<Link
-						to="/"
-						search={{ brand: undefined, search: undefined }}
+					<a
+						href={INSTAGRAM_URL}
+						target="_blank"
+						rel="noreferrer"
+						aria-label="Instagram"
 						className="flex h-18 w-18 items-center justify-center rounded-full border border-neutral-300 hover:bg-neutral-500"
 					>
 						<CiInstagram size={24} />
-					</Link>
+					</a>
 				</div>
 			</Container>
 		</footer>

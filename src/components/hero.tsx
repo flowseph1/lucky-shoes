@@ -4,6 +4,7 @@ import { CiInstagram } from "react-icons/ci";
 import { HiArrowDown } from "react-icons/hi2";
 import { Container } from "@/components/container";
 import { Button } from "@/components/ui";
+import { INSTAGRAM_URL } from "@/constants/social";
 import { homeData } from "@/data/home";
 import { SectionSubtitle } from "./section-subtitle";
 import { SectionTitle } from "./section-title";
@@ -50,7 +51,7 @@ export function Hero() {
 						rounded="xl"
 						size="large"
 						leftIcon={<CiInstagram size={24} />}
-						onClick={() => {}}
+						onClick={() => window.open(INSTAGRAM_URL, "_blank", "noopener,noreferrer")}
 						className="w-full sm:w-auto"
 					/>
 				</div>

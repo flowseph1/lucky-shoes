@@ -1,1 +1,1 @@
-export const QUOTE_PHONE = "32206770";
+export const QUOTE_PHONE = "50487560255";
