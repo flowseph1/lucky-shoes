@@ -1,45 +1,14 @@
-import { cva, type VariantProps } from "class-variance-authority";
+import { Badge } from "./badge";
 
-const pillStatusVariant = cva("px-4 py-2 rounded-full", {
-	variants: {
-		variant: {
-			active: "bg-green-950 border-green-50",
-			inactive: "bg-red-950 border-red-50",
-		},
-	},
-	defaultVariants: {
-		variant: "active",
-	},
-});
+export interface StatusVariantProps {
+	variant?: "active" | "inactive" | null;
+}
 
-const pillStatusTextVariant = cva("text-sm", {
-	variants: {
-		variant: {
-			active: "text-green-500",
-			inactive: "text-red-500",
-		},
-	},
-	defaultVariants: {
-		variant: "active",
-	},
-});
-
-export interface StatusVariantProps extends VariantProps<typeof pillStatusVariant> {}
-
-export function PillStatus({ variant }: StatusVariantProps) {
+export function PillStatus({ variant = "active" }: StatusVariantProps) {
+	const active = variant !== "inactive";
 	return (
-		<div
-			className={pillStatusVariant({
-				variant,
-			})}
-		>
-			<p
-				className={pillStatusTextVariant({
-					variant,
-				})}
-			>
-				{variant === "active" ? "Activo" : "Inactivo"}
-			</p>
-		</div>
+		<Badge tone={active ? "success" : "danger"} dot>
+			{active ? "Activo" : "Inactivo"}
+		</Badge>
 	);
 }

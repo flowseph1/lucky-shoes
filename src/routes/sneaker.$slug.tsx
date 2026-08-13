@@ -64,7 +64,6 @@ function SneakerPage() {
 							</div>
 						)}
 						<div className="relative flex-1">
-							<div className="-inset-10 pointer-events-none absolute rounded-full bg-[radial-gradient(closest-side,rgba(71,0,216,0.35),transparent_70%)] blur-2xl" />
 							<button
 								type="button"
 								onClick={() => setIsLightboxOpen(true)}

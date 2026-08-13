@@ -5,38 +5,44 @@ import { cva, type VariantProps } from "class-variance-authority";
 import type React from "react";
 import { type ButtonHTMLAttributes, memo } from "react";
 
-const button = cva("inline-flex items-center justify-center button cursor-pointer", {
-	variants: {
-		intent: {
-			primary:
-				"bg-primary-500 font-semibold text-text-base hover:shadow-filter-shadow border-[0.1rem] border-primary-300",
-			secondary:
-				"bg-primary-100 font-semibold text-primary-900 border-[0.1rem] border-primary-300 hover:bg-primary-200",
+const button = cva(
+	"button inline-flex cursor-pointer items-center justify-center whitespace-nowrap font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
+	{
+		variants: {
+			intent: {
+				primary:
+					"border-[0.1rem] border-primary-300 bg-primary-500 font-semibold text-white/90 hover:bg-primary-700 hover:shadow-filter-shadow",
+				secondary:
+					"border-[0.1rem] border-primary-border bg-primary-light font-semibold text-primary-900 hover:bg-primary-hover",
 
-			tertiary:
-				"border-[rgba(255,255,255,.05)] bg-[rgba(255,255,255,.02)] hover:bg-[rgba(255,255,255,.03)] border-[0.1rem] backdrop-blur",
-		},
-		size: {
-			small: "py-2 px-5 text-sm",
-			medium: "h-14 px-7 py-3",
-			large: "h-18 px-4",
+				tertiary:
+					"border-[0.1rem] border-white/[0.08] bg-white/[0.03] text-text-base backdrop-blur hover:border-white/[0.16] hover:bg-white/[0.06]",
+				ghost: "border-transparent bg-transparent text-text-light hover:bg-hover hover:text-text-base",
+				"ghost-danger": "border-transparent bg-transparent text-secondary hover:bg-secondary-light",
+			},
+			size: {
+				xs: "h-10 px-4 text-xs",
+				small: "h-12 px-6 text-sm",
+				medium: "h-16 px-10 text-sm",
+				large: "h-20 px-12 text-md",
+			},
+
+			rounded: {
+				sm: "rounded-sm",
+				md: "rounded-md",
+				lg: "rounded-lg",
+				xl: "rounded-xl",
+				full: "rounded-full",
+			},
 		},
 
-		rounded: {
-			sm: "rounded-sm",
-			md: "rounded-md",
-			lg: "rounded-lg",
-			xl: "rounded-xl",
-			full: "rounded-full",
+		defaultVariants: {
+			intent: "primary",
+			size: "medium",
+			rounded: "lg",
 		},
 	},
-
-	defaultVariants: {
-		intent: "primary",
-		size: "medium",
-		rounded: "lg",
-	},
-});
+);
 
 interface BaseProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof button> {
 	title: string;
@@ -49,27 +55,19 @@ interface LinkType extends BaseProps {
 }
 
 interface DefaultType extends BaseProps {
-	onClick: () => void;
+	onClick?: () => void;
 	href?: never;
 }
 
 type ButtonProps = LinkType | DefaultType;
 
 const Button = (props: ButtonProps) => {
-	if ("onClick" in props) {
+	if (!props.href) {
+		const { intent, size, className, rounded, leftIcon, title, onClick, href, ...rest } = props;
 		return (
-			<button
-				type="button"
-				className={button({
-					intent: props.intent,
-					size: props.size,
-					className: props.className,
-					rounded: props.rounded,
-				})}
-				onClick={props.onClick}
-			>
-				{props.leftIcon && <div className="mr-2">{props.leftIcon}</div>}
-				<p>{props.title}</p>
+			<button type="button" {...rest} className={button({ intent, size, className, rounded })} onClick={onClick}>
+				{leftIcon && <div className="mr-3">{leftIcon}</div>}
+				<p>{title}</p>
 			</button>
 		);
 	}
@@ -83,7 +81,7 @@ const Button = (props: ButtonProps) => {
 			})}
 			to={props.href}
 		>
-			{props.leftIcon && <div className="mr-2">{props.leftIcon}</div>}
+			{props.leftIcon && <div className="mr-3">{props.leftIcon}</div>}
 			<p>{props.title}</p>
 		</Link>
 	);

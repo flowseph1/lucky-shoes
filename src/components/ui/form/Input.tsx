@@ -4,8 +4,9 @@ import { memo } from "react";
 import type { UseFormRegisterReturn } from "react-hook-form";
 import InputLabel from "./InputLabel";
 
-interface IInput {
-	type?: "text" | "password";
+type NativeInputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, "className" | "placeholder">;
+
+interface IInput extends NativeInputProps {
 	iconLeft?: React.ReactNode;
 	iconRight?: React.ReactNode;
 	placeholder?: string;
@@ -13,7 +14,6 @@ interface IInput {
 	className?: string;
 	register?: UseFormRegisterReturn;
 	fullWidth?: boolean;
-	disabled?: boolean;
 }
 
 const Input = ({
@@ -26,14 +26,15 @@ const Input = ({
 	fullWidth,
 	label,
 	disabled,
+	...rest
 }: IInput) => {
 	return (
 		<div className={classNames("inline-flex flex-col", className, fullWidth && "w-full")}>
 			{label && <InputLabel label={label} />}
 			<div
 				className={classNames(
-					"flex h-14 w-full items-center rounded-lg border-[0.1rem] border-neutral-50 bg-neutral-500 px-4 text-sm transition-shadow focus-within:shadow-input-shadow",
-					disabled ? "" : "hover:shadow-input-shadow",
+					"flex h-16 w-full items-center rounded-lg border-[0.1rem] border-white/[0.08] bg-neutral-500 px-5 text-sm transition-colors focus-within:border-white/[0.24]",
+					disabled ? "opacity-60" : "hover:border-white/[0.16]",
 				)}
 			>
 				<label className={"flex w-full"}>
@@ -46,6 +47,7 @@ const Input = ({
 						)}
 						placeholder={placeholder}
 						disabled={disabled}
+						{...rest}
 						{...register}
 					/>
 					{iconRight && <div className="ml-2">{iconRight}</div>}

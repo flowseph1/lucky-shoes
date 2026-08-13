@@ -13,7 +13,7 @@ function config() {
 	return { url, key };
 }
 
-const accessToken = createServerOnlyFn(async () => {
+export const getAccessToken = createServerOnlyFn(async () => {
 	const { getRequestHeader } = await import("@tanstack/react-start/server");
 	const cookie = getRequestHeader("cookie") ?? "";
 	return cookie
@@ -24,7 +24,7 @@ const accessToken = createServerOnlyFn(async () => {
 });
 
 export const requireAdmin = createServerOnlyFn(async () => {
-	const token = await accessToken();
+	const token = await getAccessToken();
 	if (!token) throw redirect({ to: "/admin/login" });
 	const { url, key } = config();
 	const supabase = createClient(url, key, { global: { headers: { Authorization: `Bearer ${token}` } } });
