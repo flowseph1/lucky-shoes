@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { useLocation } from "@tanstack/react-router";
 import { IoHeartOutline } from "react-icons/io5";
 import NavbarItem, { NavItemProps } from "./NavbarItem";
 
@@ -24,7 +24,7 @@ const NAV_BAR_ITEMS_RIGHT: NavItemProps[] = [
 ];
 
 const Navbar = () => {
-	const pathname = usePathname();
+	const { pathname } = useLocation();
 
 	return (
 		<ul className="hidden h-full flex-1 items-center justify-between text-text-light sm:flex">

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@tanstack/react-router";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
@@ -12,7 +12,7 @@ export interface NavItemProps {
 const NavbarItem = ({ title, icon, href, active }: NavItemProps) => {
 	if (href) {
 		return (
-			<Link href={href}>
+			<Link to={href}>
 				<li
 					className={cn("flex cursor-pointer flex-row items-center gap-2 hover:text-text-base", {
 						"text-text-base": active,

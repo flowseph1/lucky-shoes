@@ -2,8 +2,8 @@
 
 import classNames from "classnames";
 import { memo } from "react";
+import type { Control, FieldValues } from "react-hook-form";
 import { useController } from "react-hook-form";
-import type { Control, FieldValues } from "react-hook-form/dist/types";
 import InputLabel from "../InputLabel";
 import InputAreaItem from "./InputSelectorItem";
 

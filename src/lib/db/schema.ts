@@ -1,11 +1,12 @@
 import { relations } from "drizzle-orm";
-import { boolean, integer, pgEnum, pgTable, serial, text, timestamp, varchar } from "drizzle-orm/pg-core";
+import { boolean, integer, pgEnum, pgTable, serial, text, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
 
 export const brands = pgTable("brands", {
 	id: serial("id").primaryKey(),
 	name: text("name").notNull(),
 	shortDescription: text("short_description"),
 	image: text("image").notNull(),
+	imagePath: text("image_path"),
 	url: text("url"),
 	verified: boolean("verified").notNull().default(false),
 });
@@ -23,6 +24,7 @@ export const sneakers = pgTable("sneakers", {
 	color: varchar("color", { length: 256 }),
 	price: integer("price"),
 	image: text("image").notNull(),
+	imagePath: text("image_path"),
 	shortDescription: text("short_description"),
 	longDescription: text("long_description"),
 	availability: sneakerAvailability("availability").notNull().default("Por encargo"),
@@ -40,6 +42,7 @@ export const sneakerImages = pgTable("sneaker_images", {
 		.references(() => sneakers.id)
 		.notNull(),
 	url: text("url").notNull(),
+	path: text("path"),
 	alt: text("alt"),
 	order: integer("order").default(0),
 });
@@ -62,6 +65,14 @@ export const sneakerImagesRelations = relations(sneakerImages, ({ one }) => ({
 		references: [sneakers.id],
 	}),
 }));
+
+export const profileRole = pgEnum("profile_role", ["customer", "admin"]);
+
+export const profiles = pgTable("profiles", {
+	id: uuid("id").primaryKey(),
+	role: profileRole("role").notNull().default("customer"),
+	createdAt: timestamp("created_at").notNull().defaultNow(),
+});
 
 export type InsertSneaker = typeof sneakers.$inferInsert;
 export type SelectSneaker = typeof sneakers.$inferSelect;

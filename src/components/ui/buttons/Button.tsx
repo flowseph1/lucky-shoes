@@ -1,7 +1,7 @@
 "use client";
 
+import { Link } from "@tanstack/react-router";
 import { cva, type VariantProps } from "class-variance-authority";
-import Link from "next/link";
 import type React from "react";
 import { type ButtonHTMLAttributes, memo } from "react";
 
@@ -81,7 +81,7 @@ const Button = (props: ButtonProps) => {
 				className: props.className,
 				rounded: props.rounded,
 			})}
-			href={props.href}
+			to={props.href}
 		>
 			{props.leftIcon && <div className="mr-2">{props.leftIcon}</div>}
 			<p>{props.title}</p>
