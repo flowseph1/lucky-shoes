@@ -189,7 +189,12 @@ function SneakersPage() {
 															<span className="truncate">{sneaker.name}</span>
 															{sneaker.isNew && <Badge tone="accent">Nuevo</Badge>}
 														</p>
-														<p className="mt-1 truncate text-text-extra-light text-xs">/{sneaker.slug}</p>
+														<p
+															className="mt-1 max-w-72 truncate text-text-extra-light text-xs"
+															title={`/${sneaker.slug}`}
+														>
+															/{sneaker.slug}
+														</p>
 													</div>
 												</div>
 											</Td>
