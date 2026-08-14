@@ -1,8 +1,9 @@
 export const homeData = {
 	hero: {
 		eyebrow: "Nuevos drops cada semana",
-		headline: "Underground Vibes: Explora tu Estilo Urbano",
-		subHeadline: "Exclusiva colección de tenis que combinan comodidad, tendencia y estilo urbano.",
+		headline: "Porque tus patas|lo merecen",
+		headlineHighlight: "tus patas",
+		subHeadline: "Exclusiva colección de tenis que combinan comodidad, tendencia y actitud urbana.",
 		callToAction: "Ver colección",
 		callToAction2: "Siguenos en Instagram",
 	},

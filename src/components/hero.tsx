@@ -27,12 +27,11 @@ export function Hero() {
 			/>
 
 			<Container className="relative flex flex-col items-center justify-center gap-10 py-40 sm:py-52">
-				<span className="inline-flex items-center gap-3 rounded-full border border-border-color bg-container-light px-5 py-2 text-text-light text-xs backdrop-blur">
-					<span className="inline-block h-2 w-2 rounded-full bg-tertiary shadow-[0_0_8px_var(--color-tertiary)]" />
+				<span className="inline-flex items-center rounded-full border border-border-color bg-container-light px-5 py-3 text-text-light text-xs backdrop-blur">
 					{homeData.hero.eyebrow}
 				</span>
 
-				<SectionTitle>{homeData.hero.headline}</SectionTitle>
+				<SectionTitle highlight={homeData.hero.headlineHighlight}>{homeData.hero.headline}</SectionTitle>
 				<SectionSubtitle>{homeData.hero.subHeadline}</SectionSubtitle>
 
 				<div className="flex w-full flex-col items-center gap-5 sm:w-auto sm:flex-row">
@@ -43,7 +42,7 @@ export function Hero() {
 						size="large"
 						leftIcon={<HiArrowDown size={20} />}
 						onClick={scrollToCatalog}
-						className="w-full sm:w-auto"
+						className="w-full px-5 sm:w-auto"
 					/>
 					<Button
 						title={homeData.hero.callToAction2}
@@ -52,7 +51,7 @@ export function Hero() {
 						size="large"
 						leftIcon={<CiInstagram size={24} />}
 						onClick={() => window.open(INSTAGRAM_URL, "_blank", "noopener,noreferrer")}
-						className="w-full sm:w-auto"
+						className="w-full px-5 sm:w-auto"
 					/>
 				</div>
 			</Container>

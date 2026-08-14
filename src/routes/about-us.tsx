@@ -26,14 +26,16 @@ function AboutPage() {
 						className="-translate-x-1/2 pointer-events-none absolute top-0 left-1/2 h-160 w-160 rounded-full bg-primary-500/20 blur-[120px]"
 					/>
 					<Container className="relative flex flex-col items-center gap-8 py-32 sm:py-40">
-						<span className="inline-flex items-center gap-3 rounded-full border border-border-color bg-container-light px-5 py-2 text-text-light text-xs backdrop-blur">
-							<span className="inline-block h-2 w-2 rounded-full bg-tertiary shadow-[0_0_8px_var(--color-tertiary)]" />
+						<span className="inline-flex items-center gap-2 rounded-full border border-border-color bg-container-light px-5 py-2 text-text-light text-xs backdrop-blur">
+							<span aria-hidden="true" className="text-2xl leading-none">
+								🇭🇳
+							</span>
 							{aboutData.hero.eyebrow}
 						</span>
 						<h1 className="max-w-4xl bg-linear-to-tl from-gray-400 to-white/70 bg-clip-text text-center font-bold text-[3rem] text-transparent sm:text-[4.5rem]">
 							{aboutData.hero.headline}
 						</h1>
-						<p className="max-w-2xl text-center text-lg text-text-light leading-relaxed">
+						<p className="max-w-3xl text-center text-lg text-text-light leading-relaxed">
 							{aboutData.hero.subHeadline}
 						</p>
 					</Container>
@@ -61,10 +63,7 @@ function AboutPage() {
 					<section className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
 						<div className="flex flex-col gap-3">
 							<h2 className="font-semibold text-text-base text-xl">{aboutData.story.title}</h2>
-							<div
-								aria-hidden
-								className="h-1 w-20 rounded-full bg-filter-gradient shadow-[0_0_20px_-2px_var(--color-primary-500)]"
-							/>
+							<div aria-hidden className="h-1 w-20 animate-neon-flicker rounded-full bg-neon-gradient" />
 						</div>
 						<div className="flex flex-col gap-6">
 							{aboutData.story.paragraphs.map((paragraph) => (

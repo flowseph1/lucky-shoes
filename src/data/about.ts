@@ -1,9 +1,9 @@
 export const aboutData = {
 	hero: {
-		eyebrow: "📍 Hecho en Honduras",
+		eyebrow: "Hecho en Honduras",
 		headline: "Sobre Lucky Shoes",
 		subHeadline:
-			"Somos una tienda hondureña de tenis originales. Traemos los drops del momento — Nike, Adidas, New Balance, On Cloud, Veja, Crocs y más — y los llevamos hasta tu puerta en cualquier parte del país.",
+			"Somos una tienda hondureña de tenis originales. Traemos los lanzamientos del momento de Nike, Adidas, New Balance, On Cloud, Veja, Crocs y más, y los llevamos hasta tu puerta en cualquier parte del país.",
 	},
 	story: {
 		title: "Nuestra historia",

@@ -87,6 +87,7 @@
 		transparent 100%
 	);
 	--background-image-filter-gradient: linear-gradient(45deg, #4700d8, #a500bb, #d4009c, #f0007e, #ff0d66);
+	--background-image-neon-gradient: linear-gradient(45deg, #4700d8, #6d00ff, #8b3dff, #a855f7, #c724b1);
 
 	/* Box Shadows */
 	--shadow-container-shadow: rgb(50 63 100 / 50%) 0px 1px 20px;
@@ -119,7 +120,31 @@
 		}
 	}
 
+	@keyframes neon-flicker {
+		0%,
+		18%,
+		22%,
+		25%,
+		53%,
+		57%,
+		100% {
+			opacity: 1;
+			box-shadow:
+				0 0 4px #4700d8,
+				0 0 11px #4700d8,
+				0 0 19px #4700d8,
+				0 0 40px #4700d8,
+				0 0 80px #4700d8;
+		}
+		20%,
+		55% {
+			opacity: 0.35;
+			box-shadow: none;
+		}
+	}
+
 	--animate-flicker: flicker 10s infinite;
+	--animate-neon-flicker: neon-flicker 10s infinite;
 }
 
 @font-face {
@@ -187,6 +212,16 @@
 			0 0 90px #4d77ff,
 			0 0 100px #4d77ff,
 			0 0 150px #4d77ff;
+	}
+
+	.neon-shadow {
+		text-shadow:
+			0 0 4px #c724b1,
+			0 0 11px #c724b1,
+			0 0 19px #c724b1,
+			0 0 40px #4700d8,
+			0 0 80px #4700d8,
+			0 0 100px #4700d8;
 	}
 
 	.box-blur {

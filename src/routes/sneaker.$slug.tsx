@@ -12,6 +12,7 @@ import { Container } from "@/components/container";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { ImageLightbox } from "@/components/sneaker/image-lightbox";
+import { NewSneakerBadge } from "@/components/sneaker/new-sneaker-badge";
 import { QuoteForm } from "@/components/sneaker/quote-form";
 import { SneakerItem } from "@/components/sneaker/sneaker-item";
 import { useFavorites } from "@/lib/hooks/use-favorites";
@@ -68,14 +69,14 @@ function SneakerPage() {
 						</div>
 						<div className="flex flex-col-reverse gap-4 md:flex-row">
 							{hasMultipleImages && (
-								<div className="flex max-w-full gap-3 overflow-x-auto pb-1 md:max-h-[36rem] md:w-24 md:shrink-0 md:flex-col md:overflow-y-auto md:overflow-x-hidden md:pb-0">
+								<div className="flex max-w-full gap-3 overflow-x-auto pb-1 md:max-h-none md:w-24 md:shrink-0 md:flex-col md:overflow-y-auto md:overflow-x-hidden md:pb-0">
 									{gallery.map((image, index) => (
 										<button
 											key={`${image.url}-${index}`}
 											type="button"
 											aria-pressed={index === activeImage}
 											onClick={() => setActiveImage(index)}
-											className={`h-24 w-24 shrink-0 overflow-hidden rounded-lg border-2 transition-colors ${
+											className={`h-24 w-24 shrink-0 cursor-pointer overflow-hidden rounded-lg border-2 transition-colors ${
 												index === activeImage
 													? "border-primary-300 shadow-[0_0_16px_-2px_var(--color-primary-500)]"
 													: "border-transparent opacity-70 hover:border-border-color hover:opacity-100"
@@ -86,28 +87,33 @@ function SneakerPage() {
 									))}
 								</div>
 							)}
-							<div className="relative flex-1">
+							<div className="group relative flex-1">
 								<button
 									type="button"
 									onClick={() => setIsLightboxOpen(true)}
-									className="group relative block w-full overflow-hidden rounded-3xl border border-border-color bg-gradient-to-b from-container-light to-container-extra-light"
+									className="relative block w-full overflow-hidden rounded-3xl border border-border-color bg-gradient-to-b from-container-light to-container-extra-light"
 								>
 									<img
 										src={gallery[activeImage].url}
 										alt={gallery[activeImage].alt || sneaker.name}
-										className="aspect-square w-full object-contain transition-transform duration-300 group-hover:scale-105"
+										className="aspect-square w-full object-cover transition-transform duration-300 group-hover:scale-105"
 									/>
-									<span className="absolute right-3 bottom-3 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white opacity-0 transition-opacity group-hover:opacity-100">
+									<span className="absolute right-3 bottom-3 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-black/65 text-white opacity-0 shadow-black/30 shadow-lg transition-opacity group-focus-within:opacity-100 group-hover:opacity-100">
 										<IoExpandOutline size={18} />
 									</span>
 								</button>
+								{sneaker.isNew && (
+									<div className="pointer-events-none absolute top-5 left-5">
+										<NewSneakerBadge />
+									</div>
+								)}
 								{hasMultipleImages && (
 									<>
 										<button
 											type="button"
 											aria-label="Imagen anterior"
 											onClick={() => setActiveImage((current) => (current - 1 + gallery.length) % gallery.length)}
-											className="-translate-y-1/2 absolute top-1/2 left-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-white opacity-0 transition-opacity hover:bg-black/70 focus:opacity-100 group-hover:opacity-100"
+											className="-translate-y-1/2 absolute top-1/2 left-4 z-10 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-black/50 text-white opacity-0 transition-opacity hover:bg-black/70 focus:opacity-100 group-focus-within:opacity-100 group-hover:opacity-100"
 										>
 											<IoChevronBack size={20} />
 										</button>
@@ -115,7 +121,7 @@ function SneakerPage() {
 											type="button"
 											aria-label="Siguiente imagen"
 											onClick={() => setActiveImage((current) => (current + 1) % gallery.length)}
-											className="-translate-y-1/2 absolute top-1/2 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-white opacity-0 transition-opacity hover:bg-black/70 focus:opacity-100"
+											className="-translate-y-1/2 absolute top-1/2 right-4 z-10 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-black/50 text-white opacity-0 transition-opacity hover:bg-black/70 focus:opacity-100 group-focus-within:opacity-100 group-hover:opacity-100"
 										>
 											<IoChevronForward size={20} />
 										</button>
@@ -162,7 +168,7 @@ function SneakerPage() {
 					{related.length > 0 && (
 						<section className="flex w-full flex-col gap-8">
 							<div className="flex items-center gap-3">
-								<span className="h-6 w-1 shrink-0 rounded-full bg-filter-gradient" />
+								<span className="h-6 w-1 shrink-0 animate-neon-flicker rounded-full bg-neon-gradient" />
 								<h2 className="font-bold text-2xl">También te puede interesar</h2>
 							</div>
 							<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">

@@ -2,9 +2,8 @@
 
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { CiShop } from "react-icons/ci";
 import { IoHeart, IoHeartOutline } from "react-icons/io5";
-import { Button } from "@/components/ui";
+import { NewSneakerBadge } from "@/components/sneaker/new-sneaker-badge";
 import { SneakerWithBrand } from "@/lib/api/sneakers";
 import { useFavorites } from "@/lib/hooks/use-favorites";
 
@@ -36,8 +35,8 @@ export function SneakerItem({ sneaker }: Props) {
 					</div>
 
 					{sneaker.isNew && (
-						<div className="box-blur absolute top-5 left-5 rounded-full border border-primary-border bg-neutral-1000/60 px-3 py-1">
-							<p className="font-semibold text-primary-900 text-xxs uppercase tracking-[0.08em]">Nuevo</p>
+						<div className="absolute top-5 left-5">
+							<NewSneakerBadge />
 						</div>
 					)}
 
@@ -63,19 +62,6 @@ export function SneakerItem({ sneaker }: Props) {
 					</p>
 					<div className="font-semibold text-sm">{sneaker.name}</div>
 					<div className="line-clamp-2 font-semibold text-text-light/50 text-xs">{sneaker.shortDescription}</div>
-
-					<div className="flex flex-1">
-						<div className="flex flex-1 items-end justify-end">
-							<Button
-								title="Cotizar"
-								size="small"
-								rounded="full"
-								leftIcon={<CiShop size={20} />}
-								onClick={() => null}
-							/>
-							{/* <Button title="Ver más" intent="primary" onClick={() => null} /> */}
-						</div>
-					</div>
 				</div>
 			</Link>
 		</motion.div>

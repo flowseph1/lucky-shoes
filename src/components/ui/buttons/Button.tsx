@@ -4,6 +4,7 @@ import { Link } from "@tanstack/react-router";
 import { cva, type VariantProps } from "class-variance-authority";
 import type React from "react";
 import { type ButtonHTMLAttributes, memo } from "react";
+import { cn } from "@/lib/utils";
 
 const button = cva(
 	"button inline-flex cursor-pointer items-center justify-center whitespace-nowrap font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
@@ -65,7 +66,7 @@ const Button = (props: ButtonProps) => {
 	if (!props.href) {
 		const { intent, size, className, rounded, leftIcon, title, onClick, href, ...rest } = props;
 		return (
-			<button type="button" {...rest} className={button({ intent, size, className, rounded })} onClick={onClick}>
+			<button type="button" {...rest} className={cn(button({ intent, size, rounded }), className)} onClick={onClick}>
 				{leftIcon && <div className="mr-3">{leftIcon}</div>}
 				<p>{title}</p>
 			</button>
@@ -73,12 +74,14 @@ const Button = (props: ButtonProps) => {
 	}
 	return (
 		<Link
-			className={button({
-				intent: props.intent,
-				size: props.size,
-				className: props.className,
-				rounded: props.rounded,
-			})}
+			className={cn(
+				button({
+					intent: props.intent,
+					size: props.size,
+					rounded: props.rounded,
+				}),
+				props.className,
+			)}
 			to={props.href}
 		>
 			{props.leftIcon && <div className="mr-3">{props.leftIcon}</div>}

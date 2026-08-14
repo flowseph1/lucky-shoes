@@ -15,7 +15,7 @@ export function Filters({ className, brands }: { className?: string; brands: Sel
 	});
 
 	return (
-		<div className="flex flex-col gap-6 rounded-3xl border border-border-color bg-container-extra-light p-5 sm:gap-8 sm:rounded-4xl sm:p-10">
+		<div className="flex flex-col gap-4 rounded-3xl border border-border-color bg-container-extra-light p-5 sm:gap-5 sm:rounded-4xl sm:p-10">
 			<div className="flex w-full flex-row items-center gap-3 rounded-2xl border border-border-color bg-[rgba(255,255,255,.02)] p-4 transition-colors focus-within:border-white/20 focus-within:shadow-input-shadow sm:gap-4 sm:p-5">
 				<CiSearch size={20} className="shrink-0 text-text-extra-light" />
 				<input
